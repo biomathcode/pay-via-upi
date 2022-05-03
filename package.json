@@ -11,7 +11,9 @@
   "dependencies": {
     "next": "12.1.5",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-view-slider": "^4.5.0",
+    "recoil": "^0.7.2"
   },
   "devDependencies": {
     "eslint": "8.14.0",

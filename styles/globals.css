@@ -6,6 +6,65 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+:root {
+  --header-size: 50px;
+  --nav-background: #fafafa;
+  --brand-color: #353434;
+  --primary-color: #4f4f4f;
+  --text-color: #000;
+  --text-color-secondary: #666;
+  --text-color-dark: #eee;
+}
+
+nav {
+  height: var(--header-size);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-family: sans-serif;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #eee;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--brand-color);
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  gap: 3px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 10px;
+  word-spacing: 0.2rem;
+  list-style: none;
+
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.listItem:hover {
+  background-color: #eee;
+  color: #4f4f4f;
+}
+
+.logo:hover {
+  word-spacing: -0.2rem;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -13,4 +72,21 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.getStated {
+  background: #4f4f4f;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  color: #eee;
+  margin-top: 25px;
+
+  padding: 10px;
+  cursor: pointer;
+}
+
+.getStated:hover {
+  background: #eee;
+  color: #4f4f4f;
 }

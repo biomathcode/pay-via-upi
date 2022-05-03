@@ -20,7 +20,7 @@ window.addEventListener(
        
       var amountvalues = amountList.split(",")
   
-      console.log(ol);
+    
       var e = document.createElement("button");
   
       e.type = "button";
@@ -34,7 +34,7 @@ window.addEventListener(
       e.style.position = "fixed";
       e.style.right = "35px";
       e.style.bottom = "35px";
-      e.style.borderRadius = '10px';
+      e.style.borderRadius = '5px';
       e.style.outline = 'none'
       e.style.border = 'none'
       e.style.padding = "10px 20px 10px 20px";
@@ -66,11 +66,17 @@ window.addEventListener(
       overlay.style.backgroundColor = 'rgba(0,0,0,0.5)'
       overlay.style.pointerEvents = 'none'
       overlay.style.opacity = '0'
+      overlay.style.display = 'block';
+      overlay.style.overflow = 'hidden';
+
+
   
   
       overlay.addEventListener('click', (e) => {
+        overlay.style.scale = '0'
+        overlay.style.opacity = '1'
         overlay.remove()
-        var dialogbox = document.getElementById('dialogbox')
+        var dialogbox = document.getElementById('dialogbox-payviaupi')
         dialogbox.remove()
         
       })
@@ -80,11 +86,51 @@ window.addEventListener(
   
   
       e.onclick = function () {
-          var dialogbox = document.getElementById('dialogbox')
+          var dialogbox = document.getElementById('dialogbox-payviaupi');
   
-          let qrcodelink = `upi://pay?cu=${String(currency)}&pa=${upi_id}&am=${String(amountvalues[0])}&pn=${encodeURIComponent(pn)}`
+          let qrcodelink = `upi://pay?cu=${String(currency)}&pa=${upi_id}&am=${String(amountvalues[0])}&pn=${encodeURIComponent(pn)}`;
   
-          let upiLabel = document.createElement('div')
+          let upiLabel = document.createElement('div');
+
+          let closeIcon = document.createElement('button');
+
+          closeIcon.style.width = '50px';
+
+          closeIcon.style.backgroundColor = '#fff';
+
+          closeIcon.style.outline = 'none';
+          
+          closeIcon.style.border = 'none';
+
+          closeIcon.style.cursor = 'pointer';
+
+          closeIcon.innerHTML = '<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>';
+
+          closeIcon.style.position = 'absolute';
+          
+          closeIcon.style.right = '1px';
+
+          closeIcon.style.padding = '5px';
+
+          closeIcon.style.borderRadius = '10px';
+
+          closeIcon.style.top = '2px';
+
+          closeIcon.addEventListener('mouseover', () => {
+              closeIcon.style.background = '#eee';
+          })
+
+          closeIcon.addEventListener('mouseleave', () => {
+              closeIcon.style.background = '#fff';
+          })
+
+          closeIcon.addEventListener('click', () => {
+              dialogbox.remove()
+              overlay.remove()
+          })
+
+
+          upiLabel.style.margin = '0';
   
           upiLabel.innerText = upi_id;
   
@@ -94,13 +140,24 @@ window.addEventListener(
   
   
           let link = document.createElement('a')
+
+          link.addEventListener('mouseover', () => {
+              link.style.background = '#eee';
+          })
   
+          link.addEventListener('mouseleave', () =>{
+            link.style.background = '#fff'
+          })
           link.href = qrcodelink
-          link.innerText = 'Open with UPI Apps'
+          link.innerHTML = '<div style="display:flex;align-items:center; align-content:center; padding:10px;"> <div>Open with  </div><div style="margin:0px 10px; width: 30px"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 122.88"><defs><style>.cls-1{fill:#5f259f;}.cls-2{fill:#fff;}</style></defs><title>phonepe</title><path class="cls-1" d="M75.56,1.66a61.42,61.42,0,1,0,45.66,73.9A61.42,61.42,0,0,0,75.56,1.66Z"/><path class="cls-2" d="M89.32,45.41A4.54,4.54,0,0,0,84.86,41H76.62L57.75,19.33a7,7,0,0,0-7.21-2.06L44,19.33a1.52,1.52,0,0,0-.69,2.4L63.92,41.29H32.7A1.63,1.63,0,0,0,31,43v3.43a4.54,4.54,0,0,0,4.46,4.46h4.81V67.37c0,12.35,6.52,19.56,17.5,19.56a23.66,23.66,0,0,0,9.61-1.72v11a5.42,5.42,0,0,0,5.49,5.49h4.8a2.22,2.22,0,0,0,2.06-2.06V50.56H87.6a1.63,1.63,0,0,0,1.72-1.72V45.41Zm-22,29.51a16.38,16.38,0,0,1-6.87,1.37c-5.49,0-8.23-2.74-8.23-8.92V50.9h15.1v24Z"/></svg></div><div style="width:30px; margin:0px 10px"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 123.84 104.9"><defs><path id="prefix__a" d="M65.7 63.18l30.4-52.66 16.56 9.56c10.69 6.17 14.36 19.85 8.18 30.54l-17.12 29.65c-3.86 6.68-12.4 8.97-19.09 5.12l-15.37-8.87C64.6 73.81 63 67.84 65.7 63.18z"/></defs><defs><path id="prefix__c" d="M0 .02h123.84V104.9H0z"/></defs><clipPath id="prefix__b"><use xlink:href="#prefix__a" overflow="visible"/></clipPath><clipPath id="prefix__d" clip-path="url(#prefix__b)"><use xlink:href="#prefix__c" overflow="visible"/></clipPath><g clip-path="url(#prefix__d)"><defs><path id="prefix__e" d="M64.32 10.34h59.52v77.04H64.32z"/></defs><clipPath id="prefix__f"><use xlink:href="#prefix__e" overflow="visible"/></clipPath><g clip-path="url(#prefix__f)"><image width="132" height="164" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEAlgCWAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA EAMCAwYAAANVAAAEYAAABk//2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa JjAjHh4eHiMwKy4nJycuKzU1MDA1NUBAP0BAQEBAQEBAQEBAQP/CABEIAKUAhQMBIgACEQEDEQH/ xACwAAEBAQEBAQEAAAAAAAAAAAAAAgEFBAYHAQEAAgMBAAAAAAAAAAAAAAAAAQYCBAUDEAACAAMG BgMBAAAAAAAAAAAAASADBTACEjM1BhAxMgQ0FSITIxERAAEBBQgCAQIHAAAAAAAAAAIBABAwsQMR oXKSM3MENNLTkTITITFxEiJSFBIAAQECDgEDBQAAAAAAAAAAAQAQAiAwETFxkXKSogMzQ6NEMiFB EoFCEyMU/9oADAMBAAIRAxEAAADrcn2cTT7/AEa51Ye3Q3wUe54iPa8RPteIj2vEPbXgo/RBv1v4 vidviaVi2orD3uouG7moAAAVNI/RB0ax8XxO3xNKxKncPe6ii9nYjQAAKmkfog6NY+L4nb4mlYgw 96qKLqKiKAAAqaR+iDo1j4vidviaViDD32oouoorc2IAAVNI/RB0ax8XxO3xNKxBh7twXUUXs1Ea ABU0fog6NX+L4nb4mlYgw9wNuKL2aiKZoAqaP0QdGr/F8Tt8TSsQYe4Cp0uoovZqIAVNH6IOjV/i +J2+JpWIMPcBuCrii9mojQKmj9EHRq/xfE7fE0rEGHuABtRRdRUK3NQqaP0QdGr/ACnJNbrhj6ga BoVoVoKEfbjb4n//2gAIAQIAAQUAmXr2PFeMV4xXjFeMV4xXjFe4TOuwmddhM67CZ12EzrsJnXYT OuwmddhM67C//MXxPifE+J8T4nx4f//aAAgBAwABBQDtZUtyPplH0yj6ZR9Mo+mUfTKHJlfw7Tx4 nyO08eJ8jtPHifI7Tx4nyO08eJ8jtPHifI7Tx4nyO08eJ8jtPHifIkY/q/Q/Q/Q/Q/Q/Qf2fw//a AAgBAQABBQDctT7/ALWoquVYVcqwq3VRVqqHuaoe5qh7mqHuaoe5qh7mqHuaoe5qh7mqHuaoS6xU 3fN26qIQhWUvMN26qIQhWUvMN26qIQhWUvMN26rwQhCsZeYbt1XghCFYy8w3bqvBCEIVhLzDduq8 UIQrCXmG7dV4oQhWEvMN26rAhCFHLzDduqwIQhRy8w3bqsCEIUcvMN26rChCFFLzDduqwoQhRS8w 3bqsKEIQoZeYbt1WJCEKGXmG7dViQhCFBLzDduqxoQhQS8w3bqsaEIUEvMN26rGhCELjLzDcqprq OGhmGhmGhmGhmGhmGhmGhmGhiu0QV2iCu0Uw0Yw0Yw0Yl3aPjP/aAAgBAgIGPwB71M6nNanNa8jW vI1ryNa8jWpzWx6mJepiXqYl6mJepiXqYl6mJepiXqYk6c/vKtvEtvEtvEtvEtvEtvEtvEz/2gAI AQMCBj8AyyXHCS6J3QtNy6FpuXQtNy6FpuXQtNy6FpuXQj+ty6GZdgQyzLsCGWZdgQyzLsCGWZdg QyzLsCGWZdgQyzLsCGWZdgQyxyT+mT4/b+P4/SX1Xb412+NdvjXb412+NdvjXb42f//aAAgBAQEG PwBKXHrlTD7Yr+0fytVSbtH8o3aP5Ru0fyjdk7m7J3N2Tubsnc3ZO5uydzdk7m7J3N2Tubsnc3ZO 5hReSdiqlrk2hmUcMSTcm0MyjhiSbk2hmUcMSTcm0MyjhiSbk2hmUcMSTcm0MyjhiSbk2hmUcMST cm0MyjhiSbk2hmUcMSTcm0MyjhiSbk2hmUcMSTcm0MyjhiSbk2hmUcMSTcm0MyjhiSbk2hmUcMST cm0MyjhiSbk2hmUcMSTcm0MyjhiSbk2hmUcP1Sbk/wBR1xqfbH8KQgQ2Wl/YkbU5WSn7G1OVkp+x tTlZKfsbU5WSn7G1OVkp+xtTlZKfsbU5WSn7G1OVkp+xtTlZKfsbU5WSn5tqcnJT82+vk5Kfm318 nJT82+vk5Kfmw2HybbUs/hT83f/Z" transform="matrix(.48 0 0 -.48 63.303 88.18)" overflow="visible"/></g></g><path d="M62.46 26.62l-37.82 65.5 16.56 9.56c10.69 6.17 24.37 2.51 30.54-8.18l24.53-42.49c3.86-6.68 1.57-15.23-5.12-19.09l-15.37-8.87c-4.66-2.7-10.62-1.1-13.32 3.57z" fill="#fdbd00"/><path d="M96.1 10.51L84.38 3.75C71.02-3.97 53.93.61 46.21 13.98L24.47 51.62c-3.86 6.68-1.57 15.23 5.12 19.09l11.72 6.76c6.68 3.86 15.23 1.57 19.09-5.12L86.35 27.4c5.39-9.34 17.33-12.53 26.66-7.14L96.1 10.51zm0 0z" fill="#2da94f"/><defs><path id="prefix__g" d="M49.58 25.01l-12.93-7.45c-5.76-3.32-13.13-1.35-16.46 4.4L4.67 48.77c-7.64 13.2-3.11 30.08 10.12 37.7l9.85 5.67 11.94 6.88 5.18 2.98c-9.2-6.16-12.12-18.5-6.5-28.21l4.02-6.94 14.71-25.42c3.33-5.74 1.36-13.1-4.41-16.42z"/></defs><defs><path id="prefix__i" d="M0 .02h123.84V104.9H0z"/></defs><clipPath id="prefix__h"><use xlink:href="#prefix__g" overflow="visible"/></clipPath><clipPath id="prefix__j" clip-path="url(#prefix__h)"><use xlink:href="#prefix__i" overflow="visible"/></clipPath><g clip-path="url(#prefix__j)"><defs><path id="prefix__k" d="M.96 15.86h54.72v86.16H.96z"/></defs><clipPath id="prefix__l"><use xlink:href="#prefix__k" overflow="visible"/></clipPath><g clip-path="url(#prefix__l)"><image width="120" height="182" xlink:href="data:image/jpeg;base64,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 hZtD6Qoy/9k=" transform="matrix(.48 0 0 -.48 .307 102.542)" overflow="visible"/></g></g></svg></div> <div style="width: 50px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 38.52"><path d="M122.47 11.36c-1.12-3.19-4.16-5.48-7.72-5.48h-.08c-2.32 0-4.41.97-5.9 2.52a8.16 8.16 0 00-5.9-2.52h-.07c-2.04 0-3.91.75-5.34 1.98v-.62c-.05-.63-.56-1.12-1.2-1.12h-5.48c-.67 0-1.21.54-1.21 1.21v29.74c0 .67.54 1.21 1.21 1.21h5.48a1.2 1.2 0 001.19-1.04V15.89c0-.08 0-.14.01-.21.09-.95.79-1.74 1.89-1.83h1.01c.46.04.85.2 1.15.45.48.38.74.96.74 1.6l.02 21.24c0 .67.54 1.22 1.21 1.22h5.48a1.2 1.2 0 001.2-1.15V15.88c0-.7.32-1.34.89-1.71.28-.18.62-.3 1.01-.34h1.01c1.19.1 1.9 1 1.9 2.05l.02 21.22c0 .67.54 1.21 1.21 1.21h5.48c.64 0 1.17-.5 1.21-1.13V13.91c-.03-1.31-.2-1.92-.42-2.55zM85.39 6.2h-3.13V1.12 1.1A1.105 1.105 0 0080.94.02c-3.47.95-2.78 5.76-9.12 6.17h-.61c-.09 0-.18.01-.27.03h-.01.01c-.53.13-.94.61-.94 1.19v5.48c0 .67.54 1.21 1.21 1.21h3.3l-.01 23.22c0 .66.54 1.2 1.2 1.2h5.42c.66 0 1.2-.54 1.2-1.2V14.1h3.07c.66 0 1.21-.55 1.21-1.21V7.41c0-.67-.54-1.21-1.21-1.21z" fill="#00baf2"/><path d="M65.69 6.2h-5.48c-.66 0-1.21.54-1.21 1.21v11.33c-.01.7-.58 1.26-1.28 1.26h-2.29c-.71 0-1.29-.57-1.29-1.28l-.02-11.31c0-.67-.54-1.21-1.21-1.21h-5.48c-.67 0-1.21.54-1.21 1.21v12.41c0 4.71 3.36 8.08 8.08 8.08 0 0 3.54 0 3.65.02.64.07 1.13.61 1.13 1.27 0 .65-.48 1.19-1.12 1.27-.03 0-.06.01-.09.02l-8.01.03c-.67 0-1.21.54-1.21 1.21v5.47c0 .67.54 1.21 1.21 1.21h8.95c4.72 0 8.08-3.36 8.08-8.07V7.41c.01-.67-.53-1.21-1.2-1.21zm-31.16.03h-7.6c-.67 0-1.22.51-1.22 1.13v5.14c0 .66.58 1.21 1.29 1.21h7.24c.57.09 1.02.51 1.09 1.16v.71c-.06.62-.51 1.07-1.06 1.12h-3.58c-4.77 0-8.16 3.17-8.16 7.61v6.37c0 4.42 2.92 7.56 7.65 7.56h9.93c1.78 0 3.23-1.35 3.23-3.01V14.45c0-5.04-2.6-8.22-8.81-8.22zm.87 22.86v.86c0 .07-.01.14-.02.2s-.03.12-.05.18c-.17.48-.65.83-1.22.83h-2.28c-.71 0-1.29-.54-1.29-1.21v-1.03V25.26c0-.66.58-1.2 1.29-1.2h2.28c.71 0 1.29.54 1.29 1.21v3.82zM13.16 6.19H1.19C.53 6.19 0 6.73 0 7.38V37.14c0 .66.49 1.2 1.11 1.21h5.58c.67 0 1.21-.54 1.21-1.21l.02-8.32h5.24c4.38 0 7.44-3.04 7.44-7.45v-7.72c0-4.4-3.06-7.46-7.44-7.46zm-.48 10.04v3.38c0 .71-.57 1.29-1.28 1.29H7.93v-6.77h3.47c.71 0 1.28.57 1.28 1.28v.82z" fill="#20336b"/></svg></div></div>'
   
           let dataqrcode = QRCode.generatePNG(qrcodelink)
   
           let qrcodeImage = document.createElement('img')
+
+          let qrcodeContainer = document.createElement('div');
+
+
   
           
           let name  = ol.dataset['pn']
@@ -119,7 +176,7 @@ window.addEventListener(
   
           if(!dialogbox)  { 
           dialogbox = document.createElement("dialog");
-          dialogbox.id = "dialogbox";
+          dialogbox.id = "dialogbox-payviaupi";
   
           dialogbox.style.borderRadius = '10px'
           dialogbox.style.border = '2px solid #eee'
@@ -150,7 +207,7 @@ window.addEventListener(
          
   
           input.addEventListener('change', (e) => {
-              console.log(e);
+             
               let qrcodelink = `upi://pay?cu=${String(currency)}&pa=${upi_id}&am=${String(e.target.value)}&pn=${encodeURIComponent(pn)}`
               link.href = qrcodelink
   
@@ -170,21 +227,33 @@ window.addEventListener(
   
       
           for(let i in amountvalues) {
-              let el  =document.createElement('li')
+              let el  =document.createElement('div')
               el.style.fontFamily = 'sans-serif';
               el.label = amountvalues[i]
               el.innerText = ` \u20B9${amountvalues[i]} `
               el.value = amountvalues[i]
-              el.style.padding = '2px 8px 2px 8px';
-              el.style.border = '2px solid #eee'
-              el.style.cursor = 'pointer'
+              el.style.padding = '2px 10px 2px 10px';
+              el.style.border = '2px solid #eee';
+              el.tabIndex = '0';
+              el.style.color = '#3A3A3A';
+              el.style.cursor = 'pointer';
+              el.style.fontSize ='14px';
               el.style.borderRadius = '9999px'
+              el.style.transition = 'all 0.3s ease-in'
+              el.addEventListener('mouseover', (e) => {
+                  el.style.border = '2px solid #8fce00'
+                
+              });
+              el.addEventListener('mouseleave', (e) => {
+              el.style.border = '2px solid #eee'
+                el.style.backgroundColor = 'white'
+                el.style.color = '#3A3A3A'
+              })
               el.addEventListener('click', (e) => {
                   input.value = Number(e.target.value) 
                   let qrcodelink = `upi://pay?cu=${String(currency)}&pa=${upi_id}&am=${String(e.target.value)}&pn=${encodeURIComponent(pn)}`
               link.href = qrcodelink
   
-              console.log(link.href)
   
               let dataqrcode = QRCode.generatePNG(qrcodelink)
           qrcodeImage.src = dataqrcode
@@ -221,13 +290,16 @@ window.addEventListener(
   
           let amountLabel = document.createElement('label')
   
-          amountLabel.style.fontSize = '16px';
-          amountLabel.innerText = 'Amount'
-          amountLabel.style.fontWeight = '900';
+          amountLabel.style.fontSize = '12px';
+          amountLabel.innerText = 'Enter the Amount'
+          amountLabel.style.fontWeight = '500';
+          amountLabel.style.textAlign = 'left';
+          amountLabel.style.marginLeft = '40px';
+          amountLabel.style.color = "#6B6B6B"
+          amountLabel.style.marginTop = '20px';
   
           amountContainer.style.display = 'flex';
   
-          // amountContainer.style.textAlign = 'left';
   
           amountContainer.style.flexDirection = 'column';
           amountContainer.style.gap = '10px';
@@ -240,7 +312,7 @@ window.addEventListener(
   
           rupeeLabel.innerText = '\u20B9'
           rupeeLabel.style.alignItems = 'center'
-          rupeeLabel.style.marginRight = '20px';
+          rupeeLabel.style.marginRight = '10px';
   
           
   
@@ -254,7 +326,7 @@ window.addEventListener(
   
       
           
-  
+          
   
           inputContainer.appendChild(rupeeLabel)
           inputContainer.appendChild(input)
@@ -274,43 +346,36 @@ window.addEventListener(
   
   
   
-          nameText.innerText = `UPI to ${name}`
-          nameText.style.color = '4F4F4F';
-          nameText.style.fontWeight = '600';
+          nameText.innerHTML = `<div style="color: #6B6B6B; letter-spacing: 0;  font-size:  12px; margin-bottom: 4px; font-weight: 100 ">UPI payment to <br/></div>
+          <div style="text-decoration: underline; text-decoration-color: #8fce00; text-underline-offset: 5px">${name}</div>
+          `
+          nameText.style.color = '#3A3A3A';
+          nameText.style.fontWeight = '500';
           nameText.style.fontSize = '16px';
+          nameText.style.letterSpacing = '.1rem';
           nameText.style.margin = '0';
           nameText.style.padding = '0';
-  
-          let scanandpay = document.createElement('label')
-  
-          scanandpay.style.fontSize = '16px';
-          scanandpay.style.fontWeight = '600';
-          scanandpay.innerText = 'Scan and Pay'
-          scanandpay.style.color = '#4f4f4f';
-  
+
   
       
   
-  
+          dialogbox.appendChild(closeIcon);
   
           dialogbox.appendChild(nameText)
   
-          dialogbox.appendChild(divider)
   
           dialogbox.appendChild(amountContainer)
   
   
           dialogbox.appendChild(list)
+
+          qrcodeContainer.appendChild(qrcodeImage)
+          qrcodeContainer.appendChild(upiLabel)
   
-          dialogbox.appendChild(scanandpay);
-  
-  
-          console.log(upi_id)
-          
-  
-          dialogbox.appendChild(qrcodeImage)
-  
-          dialogbox.appendChild(upiLabel)
+
+          dialogbox.appendChild(qrcodeContainer)
+     
+
   
           dialogbox.appendChild(link)
   
@@ -320,7 +385,7 @@ window.addEventListener(
           document.body.appendChild(dialogbox);
   
   
-          console.log(dataqrcode);
+          
   
           exits = true;
           } else {
@@ -347,13 +412,7 @@ window.addEventListener(
   
   
   
-  /* qr.js -- QR code generator in Javascript (revision 2011-01-19)
-   * Written by Kang Seonghoon <public+qrjs@mearie.org>.
-   *
-   * This source code is in the public domain; if your jurisdiction does not
-   * recognize the public domain the terms of Creative Commons CC0 license
-   * apply. In the other words, you can always do what you want.
-   */
+
   (function(root, name, definition) {
       if (typeof define === 'function' && define.amd) {
           define([], definition);
@@ -363,27 +422,7 @@ window.addEventListener(
           root[name] = definition();
       }
   })(this, 'QRCode', function() {
-  /* Quick overview: QR code composed of 2D array of modules (a rectangular
-   * area that conveys one bit of information); some modules are fixed to help
-   * the recognition of the code, and remaining data modules are further divided
-   * into 8-bit code words which are augumented by Reed-Solomon error correcting
-   * codes (ECC). There could be multiple ECCs, in the case the code is so large
-   * that it is helpful to split the raw data into several chunks.
-   *
-   * The number of modules is determined by the code's "version", ranging from 1
-   * (21x21) to 40 (177x177). How many ECC bits are used is determined by the
-   * ECC level (L/M/Q/H). The number and size (and thus the order of generator
-   * polynomial) of ECCs depend to the version and ECC level.
-   */
-  
-  // per-version information (cf. JIS X 0510:2004 pp. 30--36, 71)
-  //
-  // [0]: the degree of generator polynomial by ECC levels
-  // [1]: # of code blocks by ECC levels
-  // [2]: left-top positions of alignment patterns
-  //
-  // the number in this table (in particular, [0]) does not exactly match with
-  // the numbers in the specficiation. see augumenteccs below for the reason.
+
   var VERSIONS = [
       null,
       [[10, 7,17,13], [ 1, 1, 1, 1], []],
@@ -427,20 +466,18 @@ window.addEventListener(
       [[28,30,30,30], [47,24,77,65], [4,24,52,80,108,136,164]],
       [[28,30,30,30], [49,25,81,68], [4,28,56,84,112,140,168]]];
   
-  // mode constants (cf. Table 2 in JIS X 0510:2004 p. 16)
+
   var MODE_TERMINATOR = 0;
   var MODE_NUMERIC = 1, MODE_ALPHANUMERIC = 2, MODE_OCTET = 4, MODE_KANJI = 8;
   
-  // validation regexps
+
   var NUMERIC_REGEXP = /^\d*$/;
   var ALPHANUMERIC_REGEXP = /^[A-Za-z0-9 $%*+\-./:]*$/;
   var ALPHANUMERIC_OUT_REGEXP = /^[A-Z0-9 $%*+\-./:]*$/;
-  
-  // ECC levels (cf. Table 22 in JIS X 0510:2004 p. 45)
+
   var ECCLEVEL_L = 1, ECCLEVEL_M = 0, ECCLEVEL_Q = 3, ECCLEVEL_H = 2;
   
-  // GF(2^8)-to-integer mapping with a reducing polynomial x^8+x^4+x^3+x^2+1
-  // invariant: GF256_MAP[GF256_INVMAP[i]] == i for all i in [1,256)
+
   var GF256_MAP = [], GF256_INVMAP = [-1];
   for (var i = 0, v = 1; i < 255; ++i) {
       GF256_MAP.push(v);
@@ -448,13 +485,6 @@ window.addEventListener(
       v = (v * 2) ^ (v >= 128 ? 0x11d : 0);
   }
   
-  // generator polynomials up to degree 30
-  // (should match with polynomials in JIS X 0510:2004 Appendix A)
-  //
-  // generator polynomial of degree K is product of (x-\alpha^0), (x-\alpha^1),
-  // ..., (x-\alpha^(K-1)). by convention, we omit the K-th coefficient (always 1)
-  // from the result; also other coefficients are written in terms of the exponent
-  // to \alpha to avoid the redundant calculation. (see also calculateecc below.)
   var GF256_GENPOLY = [[]];
   for (var i = 0; i < 30; ++i) {
       var prevpoly = GF256_GENPOLY[i], poly = [];
@@ -466,14 +496,13 @@ window.addEventListener(
       GF256_GENPOLY.push(poly);
   }
   
-  // alphanumeric character mapping (cf. Table 5 in JIS X 0510:2004 p. 19)
+
   var ALPHANUMERIC_MAP = {};
   for (var i = 0; i < 45; ++i) {
       ALPHANUMERIC_MAP['0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:'.charAt(i)] = i;
   }
   
-  // mask functions in terms of row # and column #
-  // (cf. Table 20 in JIS X 0510:2004 p. 42)
+
   var MASKFUNCS = [
       function(i,j) { return (i+j) % 2 == 0; },
       function(i,j) { return i % 2 == 0; },
@@ -492,39 +521,7 @@ window.addEventListener(
   
   // returns the number of bits available for code words in this version.
   var nfullbits = function(ver) {
-      /*
-       * |<--------------- n --------------->|
-       * |        |<----- n-17 ---->|        |
-       * +-------+                ///+-------+ ----
-       * |       |                ///|       |    ^
-       * |  9x9  |       @@@@@    ///|  9x8  |    |
-       * |       | # # # @5x5@ # # # |       |    |
-       * +-------+       @@@@@       +-------+    |
-       *       #                               ---|
-       *                                        ^ |
-       *       #                                |
-       *     @@@@@       @@@@@       @@@@@      | n
-       *     @5x5@       @5x5@       @5x5@   n-17
-       *     @@@@@       @@@@@       @@@@@      | |
-       *       #                                | |
-       * //////                                 v |
-       * //////#                               ---|
-       * +-------+       @@@@@       @@@@@        |
-       * |       |       @5x5@       @5x5@        |
-       * |  8x9  |       @@@@@       @@@@@        |
-       * |       |                                v
-       * +-------+                             ----
-       *
-       * when the entire code has n^2 modules and there are m^2-3 alignment
-       * patterns, we have:
-       * - 225 (= 9x9 + 9x8 + 8x9) modules for finder patterns and
-       *   format information;
-       * - 2n-34 (= 2(n-17)) modules for timing patterns;
-       * - 36 (= 3x6 + 6x3) modules for version information, if any;
-       * - 25m^2-75 (= (m^2-3)(5x5)) modules for alignment patterns
-       *   if any, but 10m-20 (= 2(m-2)x5) of them overlaps with
-       *   timing patterns.
-       */
+
       var v = VERSIONS[ver];
       var nbits = 16*ver*ver + 128*ver + 64; // finder, timing and format info.
       if (needsverinfo(ver)) nbits -= 36; // version information
