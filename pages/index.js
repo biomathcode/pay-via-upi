@@ -3,9 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import Script from 'next/script'
-import SubscriptionEmail from './components/subemail'
-import Step1 from './components/step1'
-import Step2 from './components/step2'
+import SubscriptionEmail from '../components/subemail'
+import Step1 from '../components/step1'
+import Step2 from '../components/step2'
 
 
 export default function Home() {
