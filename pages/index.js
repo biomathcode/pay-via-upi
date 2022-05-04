@@ -1,14 +1,48 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import Script from 'next/script'
 import SubscriptionEmail from '../components/subemail'
 import Step1 from '../components/step1'
 import Step2 from '../components/step2'
+import Step3 from '../components/step3'
+import { useState, useCallback} from 'react'
+import { emailAtom, scriptAtom } from '../stores/Store'
+import { useRecoilState, useRecoilValue } from 'recoil'
+
+
+
+const RenderComponet = ({state }) => {
+  const components = useCallback(() => {
+    switch (state) {
+      case 0:
+        return  <Step1/>
+      case 1:
+        return <Step2/> 
+      case 2: 
+        return <Step3/>
+    }
+  },[state])
+
+  return components()
+
+  
+ 
+}
+
 
 
 export default function Home() {
+
+  const [state, setState] = useState(0);
+  
+  const [scriptData, setScriptData] = useRecoilState(scriptAtom);
+
+
+  const handleSubmit = () => {
+
+  }
+  
+
   return (
     <>
       <Head>
@@ -18,9 +52,10 @@ export default function Home() {
         
       </Head>
       <Script src='static/libs/main.js'
+      async
     data-name="pay-via-upi"
     data-cfasync="false"
-    data-pa="pratiksharma@boi"
+    data-pa='pratiksharma@boi'
     data-tn=""
     data-cu="INR"
     data-pn="Pratik Sharma"
@@ -31,35 +66,55 @@ export default function Home() {
     data-position="Right"
   
   strategy="beforeInteractive" ></Script>
-      <nav>
-
-        <li className='logo'>Pay Via UPI</li>
-      </nav>
+      
       <div className={styles.container}>
 
       <main className={styles.main}>
-        <h1>Add  
-       
+
+        <h1 >Add  
           UPI Payment
-    
             Option
             <br/>
              to your Website
             <br/>
+            <span className='text-decoration'>
             Under 60 Seconds.
+            </span>
         </h1>
+
+   
+        
         <button className='getStated'>
           Get Started
         </button>
-      <SubscriptionEmail/>
-      <Step1/>
-      <Step2/>
+
+     
 
       </main>
 
-      <main className={styles.container}>
-        <div></div>
-      </main>
+      <div className={styles.container}>
+        <div className={styles.main}>
+          <SubscriptionEmail/>
+          <h3>Let&apos;s do this!!</h3>
+        <RenderComponet state={state} scriptData={scriptData} setScriptData={setScriptData}/>
+
+        <div className='flex js'>
+          {
+            state === 0 ? null: 
+            <button  onClick={() => setState(state - 1)}>Back</button>
+
+          }
+      
+               <button  onClick={() => setState(state + 1)}> Next</button>
+
+
+        </div>
+               
+              
+
+        </div>
+      
+      </div>
 
       <footer className={styles.footer}>
         <a
@@ -69,8 +124,8 @@ export default function Home() {
         >
           Created by { "\u2800"}
           <span className={styles.logo}>
-  
           Pratik Sharma
+          
           </span>
         </a>
       </footer>

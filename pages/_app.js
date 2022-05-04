@@ -1,10 +1,17 @@
+import { RecoilRoot } from 'recoil'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
   <>
+  <RecoilRoot>
+  <nav>
 
-    <Component {...pageProps} />
+        <li className='logo'>Pay Via UPI</li>
+      </nav>
+  <Component {...pageProps} />
+
+  </RecoilRoot>
 
   </>
   ) 

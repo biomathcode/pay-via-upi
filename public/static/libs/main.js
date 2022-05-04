@@ -92,7 +92,7 @@ window.addEventListener(
   
           let upiLabel = document.createElement('div');
 
-          let closeIcon = document.createElement('button');
+          let closeIcon = document.createElement('div');
 
           closeIcon.style.width = '50px';
 
