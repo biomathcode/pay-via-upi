@@ -3,9 +3,9 @@ const { atom } = require("recoil");
 export const scriptAtom = atom({
     key: 'scriptState', 
     default: {
-        upi_id: 'pratiksharma@boi', 
-        name: 'Pratik Sharma', 
-        price_list: ['100', '200', '300', '400', '500']
+        upi_id: '', 
+        name: '', 
+        button_label: ''
     }
 })
 
@@ -13,6 +13,21 @@ export const emailAtom = atom({
     key: 'emailState',
     default: {
         name: '', 
-        email: ''
+        email: '', 
+        is_valide: false
     }
 })
+
+export const errorAtom = atom({
+    key: 'errorState', 
+    default: {
+        state: 0,
+        message: '', 
+    }
+})
+
+export const amountsAtom = atom({
+    key: 'amountState', 
+    default: [],
+})
+

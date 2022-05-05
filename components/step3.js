@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-
+import { useRecoilValue } from "recoil";
+import { amountsAtom, scriptAtom } from "../stores/Store";
 
 const linkData = [{
     link: '/how-to-add-donate-via-upi-button-on-wix-site', 
@@ -21,12 +22,33 @@ function Step3() {
     // clipboard with copy the script code and paste it on your website
 
     // links to how to add it on there website 
+    const script = useRecoilValue(scriptAtom)
+    const amounts = useRecoilValue(amountsAtom)
+
+
+    const num =   amounts.map((e) => Number(e))
+    const sortedAmount = num.sort(function(a,b){return a -b })
+  
+    console.log(sortedAmount)
+
+    const scriptTag = `<script src='https://payviaupi.com/static/libs/main.js' async data-name="pay-via-upi" data-cfasync="false" data-pa="${script.upi_id.toLowerCase()}" data-tn="" data-cu="INR" data-pn="${script.name}" data-amount_list="${sortedAmount.join()}" data-label="${script.button_label}" data-description="Scan and Pay using UPI!" data-color="#000" data-position="Right"></script>`
+
+
     return ( 
         <motion.div
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         >
-            <div className="flex column">
+            <div className="flex column max">
+                <code>
+                    
+                    {scriptTag}
+
+            
+                </code>
+                <div>
+                    <button  >Preview</button>
+                </div>
                 <div>
                     <p> Click on the box to copy the code </p>
                 </div>

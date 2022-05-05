@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { emailAtom } from "../stores/Store";
 
-function SubscriptionEmail() {
+function SubscriptionEmail({gotEmail, setGotEmail}) {
 
     const [email, setEmail ] = useRecoilState(emailAtom);
 
@@ -15,7 +15,7 @@ function SubscriptionEmail() {
     }
 
     const validate = () => {
-      
+      setEmail({is_valide: true});
     }
 
     return ( 
@@ -31,7 +31,7 @@ function SubscriptionEmail() {
             <label>Email</label>
             <input value={email.email} onChange={handleEmail}  placeholder='example@gmail.com'/>
           </div>
-          <button>Sure!</button>
+          <button onClick={validate}>Sure!</button>
       </div>
 
 </motion.div>      

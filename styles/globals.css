@@ -42,6 +42,8 @@ nav {
   align-items: center;
   justify-content: space-between;
   border-bottom: 2px solid #eee;
+  backdrop-filter: blur(10px);
+  background-color: transparent;
 }
 
 button {
@@ -137,6 +139,15 @@ a {
 
 .max {
   max-width: 420px;
+  max-height: 500px;
+}
+
+.error {
+  padding: 15px;
+  border: 1px solid #ff5252;
+}
+.error svg {
+  color: #ff5252;
 }
 
 .getStated {
