@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRecoilValue } from "recoil";
-import { amountsAtom, scriptAtom } from "../stores/Store";
+import { amountsAtom, scriptAtom } from "../lib/Store";
+import { useRouter } from "next/router";
 
 const linkData = [{
     link: '/how-to-add-donate-via-upi-button-on-wix-site', 
@@ -33,6 +34,9 @@ function Step3() {
 
     const scriptTag = `<script src='https://payviaupi.com/static/libs/main.js' async data-name="pay-via-upi" data-cfasync="false" data-pa="${script.upi_id.toLowerCase()}" data-tn="" data-cu="INR" data-pn="${script.name}" data-amount_list="${sortedAmount.join()}" data-label="${script.button_label}" data-description="Scan and Pay using UPI!" data-color="#000" data-position="Right"></script>`
 
+    const router = useRouter();
+
+    const urlData = `/preview?pa=${script.upi_id}&pn=${script.name}&amount_list=${sortedAmount.join()}&button_label=${script.button_label}`
 
     return ( 
         <motion.div
@@ -46,8 +50,14 @@ function Step3() {
 
             
                 </code>
-                <div>
-                    <button  >Preview</button>
+                <div style={{marginTop: '25px'}}>
+                    <Link href={urlData} passHref  >
+                    <a target="_blank" rel="noopener noreferrer" className="preview-link" >
+                        Preview
+                        
+                    </a>
+
+                    </Link>
                 </div>
                 <div>
                     <p> Click on the box to copy the code </p>

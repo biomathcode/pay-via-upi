@@ -6,7 +6,7 @@ import Step1 from '../components/step1'
 import Step2 from '../components/step2'
 import Step3 from '../components/step3'
 import { useState, useCallback} from 'react'
-import { amountsAtom, emailAtom, errorAtom, scriptAtom } from '../stores/Store'
+import { amountsAtom, emailAtom, errorAtom, scriptAtom } from '../lib/Store'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { DownIcon, InfoIcon } from '../components/Icons'
 import isLength from 'validator/lib/isLength';
@@ -72,6 +72,8 @@ export default function Home() {
        const amountListLength = amountList.length === 4 ? true : false
 
         if(buttonCheck && amountListLength) {
+          console.log(scriptData)
+          console.log(amountList)
           setError({state: 2, message: ''})
           return setState(state +1);
         } else {
@@ -89,7 +91,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         
       </Head>
-      <Script src='static/libs/main.js'
+      {/* <Script src='static/libs/main.js'
       async
     data-name="pay-via-upi"
     data-cfasync="false"
@@ -103,7 +105,7 @@ export default function Home() {
     data-color="#000"
     data-position="Right"
   
-  strategy="beforeInteractive" ></Script>
+  strategy="beforeInteractive" ></Script> */}
       
       <div className={styles.container}>
 
@@ -152,7 +154,7 @@ export default function Home() {
 
           }
           {
-            state > 3 ? null:
+            state === 2 ? null:
             <button  onClick={handleNext}> Next</button>
 
           }

@@ -88,8 +88,7 @@ li {
 .flex {
   display: flex;
   gap: 3px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .js {
@@ -126,6 +125,12 @@ li {
 
 .logo:hover {
   word-spacing: -0.2rem;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 a {
@@ -165,4 +170,24 @@ a {
 .getStated:hover {
   background: #eee;
   color: #4f4f4f;
+}
+
+.link {
+  text-decoration: none !important;
+}
+.link:hover {
+  background-color: #eee;
+}
+
+.preview-link {
+  padding: 5px 10px;
+  background-color: #fff;
+  text-decoration: none !important;
+
+  border-radius: 9999px;
+  border: 1px solid #4b4b4b;
+}
+
+.preview-link:hover {
+  background-color: #eee;
 }

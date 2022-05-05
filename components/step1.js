@@ -1,5 +1,5 @@
 import { useRecoilState } from 'recoil';
-import { scriptAtom } from '../stores/Store';
+import { scriptAtom } from '../lib/Store';
 import {motion} from 'framer-motion'
 
 function Step1() {

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { emailAtom } from "../stores/Store";
+import { useRecoilState } from "recoil";
+import { emailAtom } from "../lib/Store";
 
 function SubscriptionEmail({gotEmail, setGotEmail}) {
 

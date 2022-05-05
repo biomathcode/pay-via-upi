@@ -324,10 +324,6 @@ window.addEventListener(
           inputContainer.style.justifyContent = 'center'
           
   
-      
-          
-          
-  
           inputContainer.appendChild(rupeeLabel)
           inputContainer.appendChild(input)
   

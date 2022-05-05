@@ -2,7 +2,7 @@ import { useState } from "react";
 import { RightIcon } from "./Icons";
 import { motion } from "framer-motion";
 import { useRecoilState } from "recoil";
-import { amountsAtom, scriptAtom } from "../stores/Store";
+import { amountsAtom, scriptAtom } from "../lib/Store";
 
 function Step2() {
   const [amountList, setAmountList] = useRecoilState(amountsAtom)
