@@ -1,6 +1,6 @@
 import Head from "next/head";
+import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import Script from "next/script";
 import SubscriptionEmail from "../components/subemail";
 import Step1 from "../components/step1";
 import Step2 from "../components/step2";
@@ -90,8 +90,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.container}>
-        <main className={styles.main}>
+      <div className="container">
+        <main className="main" style={{ marginTop: "40px" }}>
           <motion.h1
             animate={{ y: 0, opacity: 1 }}
             transition={{
@@ -121,6 +121,33 @@ export default function Home() {
           >
             *Spoiler: We are not a payment gateway!
           </motion.p>
+          <div className="flex" style={{ gap: "30px" }}>
+            {["Open Sourced", "Free", "Responsive"].map((el, i) => {
+              return (
+                <motion.p
+                  key={el}
+                  transition={{
+                    delay: 1.5 + i * 0.2,
+                    type: "spring",
+                    stiffness: 200,
+                  }}
+                  style={{
+                    padding: "10px",
+                    border: "2px solid #eee",
+                    borderRadius: "10px",
+                    color: "#4b4b4b",
+                  }}
+                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                >
+                  {el}
+                </motion.p>
+              );
+            })}
+          </div>
+
           <div style={{ marginTop: "100px" }}>
             <DownIcon />
             Scroll Down
@@ -130,55 +157,79 @@ export default function Home() {
         <div className="container">
           <div className="main">
             <SubscriptionEmail />
+            {emailData.is_valide && (
+              <div style={{ marginTop: "100px" }}>
+                <DownIcon />
+                Scroll Down
+              </div>
+            )}
           </div>
         </div>
 
         {emailData.is_valide && (
-          <div className={styles.container}>
-            <div className={styles.main}>
-              <h3>Let&apos;s do this!!</h3>
-
-              {error.state === state && error.message && (
-                <motion.div
-                  initial={{ y: "-10vh", opacity: "0" }}
-                  animate={{ y: 0, opacity: 1 }}
-                >
-                  <article className="error">
-                    <span aria-label="info-icon">
-                      {" "}
-                      <InfoIcon />{" "}
-                    </span>{" "}
-                    {error.message}
-                  </article>
-                </motion.div>
-              )}
-              <RenderComponet
-                state={state}
-                scriptData={scriptData}
-                setScriptData={setScriptData}
-              />
-
-              <div className="flex js" style={{ width: "350px" }}>
-                {state === 0 ? null : (
-                  <button onClick={() => setState(state - 1)}>Back</button>
+          <div className="container">
+            <div className="main">
+              <div className="flex column max">
+                <h3>Let&apos;s do this!!</h3>
+                {error.state === state && error.message && (
+                  <motion.div
+                    initial={{ y: "-10vh", opacity: "0" }}
+                    animate={{ y: 0, opacity: 1 }}
+                  >
+                    <div className="error">
+                      <span aria-label="info-icon">
+                        {" "}
+                        <InfoIcon />{" "}
+                      </span>{" "}
+                      {error.message}
+                    </div>
+                  </motion.div>
                 )}
-                {state === 2 ? null : (
-                  <button onClick={handleNext}> Next</button>
-                )}
+                <RenderComponet
+                  state={state}
+                  scriptData={scriptData}
+                  setScriptData={setScriptData}
+                />
+
+                <div className="flex js max">
+                  {state === 0 ? null : (
+                    <button onClick={() => setState(state - 1)}>Back</button>
+                  )}
+                  {state === 2 ? null : (
+                    <button onClick={handleNext}> Next</button>
+                  )}
+                </div>
               </div>
             </div>
           </div>
         )}
 
         <footer className={styles.footer}>
-          <a
-            href="https://twitter.com/biomathcode"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Created by
-            <span className={styles.logo}>{"  Pratik Sharma "}</span>
-          </a>
+          <div className="flex column" style={{ gap: "20px" }}>
+            <a
+              href="https://twitter.com/biomathcode"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Created by
+              {"\u2002Pratik Sharma "}
+            </a>
+            <a
+              href="https://twitter.com/biomathcode"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit Github Repo
+            </a>
+          </div>
+          <div className="flex center">
+            <Image
+              src="/logo.svg"
+              alt="Logo of pay via upi"
+              width="50px"
+              height="50x"
+            />
+          </div>
         </footer>
       </div>
     </>

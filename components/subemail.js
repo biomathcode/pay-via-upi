@@ -27,8 +27,7 @@ function SubscriptionEmail({ gotEmail, setGotEmail }) {
           <h3>Get the Access now !</h3>
           <p className=" max ">
             We are still in Beta! We would like to update you if there are any
-            changes. Please tell us your email though which we are able to
-            contact you. Thanks!
+            changes.
           </p>
 
           <div className="flex column">

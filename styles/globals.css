@@ -44,6 +44,7 @@ nav {
   border-bottom: 2px solid #eee;
   backdrop-filter: blur(10px);
   background-color: transparent;
+  z-index: 30;
 }
 
 button {
@@ -70,7 +71,7 @@ button:hover {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 10vw, 4rem);
   color: var(--brand-color);
   margin: 0;
 }
@@ -144,7 +145,7 @@ a {
 
 .max {
   max-width: 350px;
-  max-height: 500px;
+  max-height: 700px;
 }
 
 .error {
