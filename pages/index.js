@@ -126,6 +126,7 @@ export default function Home() {
         data-description="Scan and Pay using UPI!"
         data-color="#000"
         data-position="Right"
+        strategy="beforeInteractive"
       ></Script>
       <div className="container">
         <main className="main" style={{ marginTop: "40px" }}>
