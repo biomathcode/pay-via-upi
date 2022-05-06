@@ -85,10 +85,12 @@ export default function Home() {
     <>
       <Head>
         <title> Pay Via UPI </title>
+        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content=" Add UPI Payment Option to your website under 60 seconds."
         />
+        <meta name="theme-color" content="#fff" />
         <meta name="twitter:card" content="summary" key="twcard" />
         <meta name="twitter:creator" content="@biomathcode" key="twhandle" />
 
