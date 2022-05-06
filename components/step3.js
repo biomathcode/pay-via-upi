@@ -29,8 +29,6 @@ function Step3() {
     return a - b;
   });
 
-  console.log(sortedAmount);
-
   const scriptTag = `<script src='https://payviaupi.com/static/main.js' async data-name="pay-via-upi" data-cfasync="false" data-pa="${script.upi_id.toLowerCase()}" data-tn="" data-cu="INR" data-pn="${
     script.name
   }" data-amount_list="${sortedAmount.join()}" data-label="${

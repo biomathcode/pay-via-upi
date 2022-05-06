@@ -48,10 +48,6 @@ export default function Home() {
 
         const upiCheck = matches(scriptData.upi_id, upi_pattern);
 
-        console.log(lenCheck);
-        console.log(upiCheck);
-        console.log(scriptData);
-
         if (lenCheck & upiCheck) {
           setError({ state: 1, message: "" });
           return setState(state + 1);
@@ -113,7 +109,7 @@ export default function Home() {
       </Head>
 
       <Script
-        src="https://payviaupi.com/static/main.js"
+        src="./static/main.js"
         async
         data-name="pay-via-upi"
         data-cfasync="false"
@@ -265,7 +261,7 @@ export default function Home() {
               src="/logo.svg"
               alt="Logo of pay via upi"
               width="50px"
-              height="50x"
+              height="50px"
             />
             © Copyright 2022
           </div>

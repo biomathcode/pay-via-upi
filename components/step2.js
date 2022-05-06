@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { RightIcon } from "./Icons";
 import { motion } from "framer-motion";
 import { useRecoilState } from "recoil";
 import { amountsAtom, scriptAtom } from "../lib/Store";
 
 function Step2() {
-  const [amountList, setAmountList] = useRecoilState(amountsAtom)
+  const [amountList, setAmountList] = useRecoilState(amountsAtom);
 
   const [data, setData] = useRecoilState(scriptAtom);
 
@@ -13,16 +12,14 @@ function Step2() {
     if (amountList.includes(el.target.innerText)) {
       const newlist = amountList.filter((e) => e !== el.target.innerText);
       setAmountList([...newlist]);
-      console.log(newlist);
     }
     if ((amountList.length < 4) & !amountList.includes(el.target.innerText)) {
-        const amoutList = amountList.length === null ? true : false
-        if(amoutList) {
-            setAmountList([el.target.value])
-        } else {
-            setAmountList([ ...amountList, el.target.innerText]);
-
-        }
+      const amoutList = amountList.length === null ? true : false;
+      if (amoutList) {
+        setAmountList([el.target.value]);
+      } else {
+        setAmountList([...amountList, el.target.innerText]);
+      }
     }
   };
   return (
@@ -33,11 +30,17 @@ function Step2() {
       <div className="flex column max">
         <div className="flex column">
           <label>Button label</label>
-          <input value={data.button_label} onChange={(e) => setData({...data, button_label: e.target.value})} placeholder="Support Me " />
+          <input
+            value={data.button_label}
+            onChange={(e) => setData({ ...data, button_label: e.target.value })}
+            placeholder="Support Me "
+          />
         </div>
-        <div className="flex column " >
-          <label>Select four amounts that you would like to get receive .(₹) </label>
-          <div className="flex" style={{flexWrap:'wrap', gap:'10px' }}>
+        <div className="flex column ">
+          <label>
+            Select four amounts that you would like to get receive .(₹){" "}
+          </label>
+          <div className="flex" style={{ flexWrap: "wrap", gap: "10px" }}>
             {[
               "10",
               "20",
@@ -63,17 +66,19 @@ function Step2() {
                     flexWrap: "wrap",
                     maxHeight: "100px",
                     maxWidth: "120px",
-                    width:'100px', 
+                    width: "100px",
                     justifyContent: "space-between",
                     gap: "10px",
                     listStyle: "none",
-                    border: amountList.includes(el) ? '1px solid green':  "1px solid #eee",
+                    border: amountList.includes(el)
+                      ? "1px solid green"
+                      : "1px solid #eee",
                     borderRadius: "5px",
                     cursor: "pointer",
                   }}
                   key={el}
                 >
-                  <span >{el}</span>
+                  <span>{el}</span>
                   {amountList.includes(el) && <RightIcon />}
                 </div>
               );
