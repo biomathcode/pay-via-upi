@@ -14,6 +14,8 @@ import matches from "validator/lib/matches";
 import { motion } from "framer-motion";
 import Script from "next/script";
 
+import { supabase } from "../utils/supabaseClient";
+
 const RenderComponet = ({ state }) => {
   const components = useCallback(() => {
     switch (state) {

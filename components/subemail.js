@@ -1,20 +1,61 @@
 import { motion } from "framer-motion";
-import { useRecoilState } from "recoil";
+import { useState } from "react";
 import { emailAtom } from "../lib/Store";
 
-function SubscriptionEmail({ gotEmail, setGotEmail }) {
-  const [email, setEmail] = useRecoilState(emailAtom);
+import { useRecoilState } from "recoil";
+import { supabase } from "../utils/supabaseClient";
+import isLength from "validator/lib/isLength";
+import isEmail from "validator/lib/isEmail";
+
+function SubscriptionEmail() {
+  const [_, setEmailAtom] = useRecoilState(emailAtom);
+
+  const [error, setError] = useState("");
+
+  const [name, setName] = useState("");
+
+  const [email, setEmail] = useState("");
 
   const handleName = (e) => {
-    setEmail({ ...email, name: e.target.value });
+    setName(e.target.value);
   };
 
   const handleEmail = (e) => {
-    setEmail({ ...email, email: e.target.value });
+    setEmail(e.target.value);
   };
 
-  const validate = () => {
-    setEmail({ is_valide: true });
+  const validate = async () => {
+    const emailCheck = isEmail(email);
+
+    const nameCheck = isLength(name, { min: 3 });
+
+    console.log(emailCheck);
+
+    console.log(nameCheck);
+
+    if (emailCheck && nameCheck) {
+      const updateData = {
+        email: email,
+        name: name,
+      };
+      let { data, error } = await supabase.from("mail").insert(updateData);
+      if (error) {
+        setError(error.details);
+        if (error.code === "23505") {
+          setError("yeah! Already a user. Scroll down...");
+          setEmailAtom({ is_valide: true });
+        }
+      }
+      if (data) {
+        console.log(data);
+        setEmailAtom({ is_valide: true });
+        setError("You are in!!!! Scroll Down");
+      }
+    } else {
+      setError(
+        "Please check your email. Name length can not be less than 3 letters. "
+      );
+    }
   };
 
   return (
@@ -33,7 +74,8 @@ function SubscriptionEmail({ gotEmail, setGotEmail }) {
           <div className="flex column">
             <label>Full name</label>
             <input
-              value={email.name}
+              type="text"
+              value={name}
               onChange={handleName}
               placeholder="John Doe"
             />
@@ -41,11 +83,13 @@ function SubscriptionEmail({ gotEmail, setGotEmail }) {
           <div className="flex column">
             <label>Email</label>
             <input
-              value={email.email}
+              type="email"
+              value={email}
               onChange={handleEmail}
               placeholder="example@gmail.com"
             />
           </div>
+          {error && <p>{error}</p>}
           <button onClick={validate}>Sure!</button>
         </motion.div>
       </div>
