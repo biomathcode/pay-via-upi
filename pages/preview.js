@@ -8,11 +8,7 @@ import QRCode from 'qrcode';
 import { useRouter } from "next/router";
 
 
-const upiLabel = styled('div', {
-  margin:0, 
-  color:'#4f4f4f', 
-  fontSize:'14px', 
-})
+
 
 const generateQR =  text => {
   try {
@@ -22,15 +18,18 @@ const generateQR =  text => {
   }
 }
 
-const upiLink = styled('a', {
-})
+
 
 const Heading = styled('div', {
+  position: 'absolute', 
+  top: '10px', 
+  left:'80px', 
   color: '#6b6b6b', 
   letterSpacing: 0,
   fontSize: '12px', 
-  marginBottom:'4px', 
   fontWeight:100, 
+  marginBottom:"40px",
+
 })
 
 const Name = styled('div', {
@@ -52,7 +51,7 @@ const ListContainer = styled('li',{
   flexDirection:'row', 
   justifyContent:'center', 
   gap:'10px', 
-  marginTop:'0', 
+
 })
 
 const ListItem = styled('div', {
@@ -120,7 +119,9 @@ const Content = styled(Dialog.Content, {
 });
 
 const Close = styled(Dialog.Close, {
-  width: '50px',
+  width: '30px',
+  height:'30px', 
+  maxHeight:'50px', 
   backgroundColor: '#fff',
   outline: 'none', 
   border: 'none', 
@@ -128,6 +129,9 @@ const Close = styled(Dialog.Close, {
   left: '260px',
   top: '2px',
   color:'#4b4b4b',
+  display:'flex',
+  alignContent:'center', 
+  alignItems:'center', 
 
   borderRadius:'10px',
   padding:'5px', 
@@ -149,10 +153,13 @@ const Modal = ({amounts, pa, pn, button_label}) => {
 
   const [img, setImg] = useState('');
 
+  const [url, setUrl]  = useState('');
+
 
   useEffect(() => {
     let qrcodelink = `upi://pay?cu=${String(currency)}&pa=${pa}&am=${String(value)}&pn=${encodeURIComponent(pn)}`;
     generateQR(qrcodelink).then(res => setImg(res))
+    setUrl(qrcodelink);
 
   }, [value, pa, pn])
 
@@ -172,9 +179,11 @@ const Modal = ({amounts, pa, pn, button_label}) => {
     <Dialog.Portal>
       <Overlay >
       <Content>
-      <Close>
+        
+        <Close>
           <CloseIcon/>
         </Close>
+       
         <Heading>
           UPI payment to
           <Name>Pratik Sharma</Name>
@@ -182,7 +191,6 @@ const Modal = ({amounts, pa, pn, button_label}) => {
         <div>
           <div className="flex column" >
           <div style={{
-            marginLeft:'50px',
              fontSize:'12px', 
             fontWeight: '500', 
             textAlign: 'left', 
@@ -191,7 +199,7 @@ const Modal = ({amounts, pa, pn, button_label}) => {
             marginTop: '20px', 
         
         }}>Enter the Amount</div>
-        <div className="flex center " style={{gap:'10px'}}>
+        <div className="flex center " style={{gap:'5px'}}>
 
           <label style={{fontSize:'20px', color:'#1F1F1F', alignItems:'center'}}> {'\u20B9'} </label>
         <input  tabIndex='0' type='number' value={value} onChange={(e) => setValue(e.target.value)} />
@@ -211,13 +219,14 @@ const Modal = ({amounts, pa, pn, button_label}) => {
         </ListContainer>
 
         </div>
-      <div>
+      <div style={{display:'flex', flexDirection: 'column',gap:'0px'}}>
       <QRcodeImage src={img} alt={pa}/>
-        <div>{pa}</div>
-
+        <div
+        style={{fontSize:'14px', color:'#6B6B6B'}}
+        >{pa}</div>
       </div>
        
-        <a href="/pratik" className="link" style={{alignSelf:'center', padding:'5px 20px', borderRadius:'10px'}}>
+        <a href={url} className="link" style={{alignSelf:'center', padding:'5px 20px', borderRadius:'10px'}}>
           <div className="flex " style={{gap:'10px', alignContent:'center', alignItems:'center'}}>
             <div>
               Open with 

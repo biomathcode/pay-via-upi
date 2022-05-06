@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^0.1.7",
+    "@react-hook/copy": "^2.0.1",
     "@stitches/react": "^1.2.8",
     "framer-motion": "^6.3.3",
     "next": "12.1.5",

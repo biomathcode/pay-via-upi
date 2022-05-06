@@ -143,7 +143,7 @@ a {
 }
 
 .max {
-  max-width: 420px;
+  max-width: 350px;
   max-height: 500px;
 }
 
@@ -183,11 +183,26 @@ a {
   padding: 5px 10px;
   background-color: #fff;
   text-decoration: none !important;
-
+  color: #1f1f1f;
   border-radius: 9999px;
-  border: 1px solid #4b4b4b;
+  border: 2px solid #1f1f1f;
 }
 
 .preview-link:hover {
-  background-color: #eee;
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRecoilValue } from "recoil";
 import { amountsAtom, scriptAtom } from "../lib/Store";
-import { useRouter } from "next/router";
+import useCopy from "@react-hook/copy";
+import { ClipboardIcon } from "./Icons";
 
 const linkData = [{
     link: '/how-to-add-donate-via-upi-button-on-wix-site', 
@@ -20,9 +21,8 @@ const linkData = [{
 ];
 
 function Step3() {
-    // clipboard with copy the script code and paste it on your website
 
-    // links to how to add it on there website 
+   
     const script = useRecoilValue(scriptAtom)
     const amounts = useRecoilValue(amountsAtom)
 
@@ -32,9 +32,10 @@ function Step3() {
   
     console.log(sortedAmount)
 
-    const scriptTag = `<script src='https://payviaupi.com/static/libs/main.js' async data-name="pay-via-upi" data-cfasync="false" data-pa="${script.upi_id.toLowerCase()}" data-tn="" data-cu="INR" data-pn="${script.name}" data-amount_list="${sortedAmount.join()}" data-label="${script.button_label}" data-description="Scan and Pay using UPI!" data-color="#000" data-position="Right"></script>`
+    const scriptTag = `<script src='https://payviaupi.com/static/main.js' async data-name="pay-via-upi" data-cfasync="false" data-pa="${script.upi_id.toLowerCase()}" data-tn="" data-cu="INR" data-pn="${script.name}" data-amount_list="${sortedAmount.join()}" data-label="${script.button_label}" data-description="Scan and Pay using UPI!" data-color="#000" data-position="Right"></script>`
 
-    const router = useRouter();
+    const {copied, copy, reset} = useCopy(scriptTag)
+
 
     const urlData = `/preview?pa=${script.upi_id}&pn=${script.name}&amount_list=${sortedAmount.join()}&button_label=${script.button_label}`
 
@@ -44,13 +45,23 @@ function Step3() {
         animate={{opacity: 1}}
         >
             <div className="flex column max">
-                <code>
+                <code style={{padding:'10px', border:'2px solid #eee', borderRadius:'10px'}}>
                     
                     {scriptTag}
 
             
                 </code>
-                <div style={{marginTop: '25px'}}>
+                <div className="flex js" style={{marginTop:'20px'}}>
+                <button style={{padding:'5px 5px' }} onClick={copy}>{copied === false ? 
+                (
+                    <div style={{gap:'10px', alignContent:'center', alignItems:'center', display:'flex'}}>
+                <ClipboardIcon/> 
+            
+                    </div>) :
+                
+                'Copied'}</button>
+
+                <div >
                     <Link href={urlData} passHref  >
                     <a target="_blank" rel="noopener noreferrer" className="preview-link" >
                         Preview
@@ -59,6 +70,9 @@ function Step3() {
 
                     </Link>
                 </div>
+
+                </div>
+            
                 <div>
                     <p> Click on the box to copy the code </p>
                 </div>
