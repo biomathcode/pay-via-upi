@@ -63,6 +63,7 @@ window.addEventListener(
     overlay.style.opacity = "0";
     overlay.style.display = "block";
     overlay.style.overflow = "hidden";
+    overlay.style.zIndex = 40;
 
     overlay.addEventListener("click", (e) => {
       overlay.style.scale = "0";

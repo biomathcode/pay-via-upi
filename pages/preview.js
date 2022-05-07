@@ -286,17 +286,20 @@ function Preview() {
   const { pa, pn, amount_list, button_label } = router.query;
 
   return (
-    <div>
-      <h1 style={{ marginTop: "10vh" }}>Your website</h1>
+    <div className="container">
+      <div className="main">
+        <h1 style={{ marginTop: "10vh" }}>Preview</h1>
+        <p>Click the button on the right bottom corner</p>
 
-      {amount_list && (
-        <Modal
-          amounts={amount_list}
-          pa={pa}
-          pn={pn}
-          button_label={button_label}
-        />
-      )}
+        {amount_list && (
+          <Modal
+            amounts={amount_list}
+            pa={pa}
+            pn={pn}
+            button_label={button_label}
+          />
+        )}
+      </div>
     </div>
   );
 }

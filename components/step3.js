@@ -7,16 +7,20 @@ import { ClipboardIcon } from "./Icons";
 
 const linkData = [
   {
-    link: "/how-to-add-donate-via-upi-button-on-wix-site",
-    label: " How to add donate via upi button on wix site?",
+    link: "https://help.wixanswers.com/kb/en/article/adding-custom-css-and-javascript-to-your-help-center",
+    label: " How to add pay via upi button on wix site?",
   },
   {
-    link: "/how-to-add-donate-via-upi-button-on-nextjs-site",
-    label: "How to add donate via upi button on nextjs site?",
+    link: "https://themeisle.com/blog/wordpress-custom-javascript/",
+    label: "How to add Custom JS script on Wordpress site",
   },
   {
-    link: "/how-to-add-donate-via-upi-button-on-create-react-app",
-    label: "How to add donate via upi button on Create React App",
+    link: "/blogs/how-to-add-pay-via-upi-button-on-nextjs-site",
+    label: "How to add pay via upi button on nextjs site?",
+  },
+  {
+    link: "https://betterprogramming.pub/4-ways-of-adding-external-js-files-in-reactjs-823f85de3668",
+    label: "How to add External Javascript Script on Create React App",
   },
 ];
 
@@ -95,7 +99,11 @@ function Step3() {
           {linkData.map((el) => {
             return (
               <li key={el.link}>
-                <Link href={el.link}>{el.label}</Link>
+                <Link href={el.link} passHref>
+                  <a target="_blank" rel="noopener noreferrer">
+                    {el.label}
+                  </a>
+                </Link>
               </li>
             );
           })}

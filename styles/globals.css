@@ -44,7 +44,7 @@ nav {
   border-bottom: 2px solid #eee;
   backdrop-filter: blur(10px);
   background-color: transparent;
-  z-index: 30;
+  z-index: 3;
 }
 
 button {
