@@ -253,7 +253,7 @@ export default function Home() {
               {"\u2002Pratik Sharma "}
             </a>
             <a
-              href="https://twitter.com/biomathcode"
+              href="https://github.com/pratiksharm/pay-via-upi"
               target="_blank"
               rel="noopener noreferrer"
             >
