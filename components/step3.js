@@ -92,7 +92,7 @@ function Step3() {
         </div>
 
         <div>
-          <p> Click on the box to copy the code </p>
+          <p> Copy and Paste the script tag inside the head tag.</p>
         </div>
         <div>
           <article>Read more about how to add it on your website. </article>

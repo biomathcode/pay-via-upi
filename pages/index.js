@@ -86,17 +86,13 @@ export default function Home() {
     <>
       <Head>
         <title> Pay Via UPI </title>
-        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content=" Add UPI Payment Option to your website under 60 seconds."
         />
-        <meta name="theme-color" content="#fff" />
-        <meta name="twitter:card" content="summary" key="twcard" />
-        <meta name="twitter:creator" content="@biomathcode" key="twhandle" />
 
         <meta property="og:url" content="https://payviaupi.com" key="ogurl" />
-        <meta property="og:image" content="" key="ogimage" />
+        <meta property="og:image" content="/header.png" key="ogimage" />
         <meta property="og:site_name" content="PayViaUPI" key="ogsitename" />
         <meta
           property="og:title"
@@ -123,7 +119,7 @@ export default function Home() {
         data-cu="INR"
         data-pn="Pratik Sharma"
         data-amount_list="50,100,150,200"
-        data-label="Support me"
+        data-label="Support us"
         data-description="Scan and Pay using UPI!"
         data-color="#000"
         data-position="Right"

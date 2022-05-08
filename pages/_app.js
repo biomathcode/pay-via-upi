@@ -2,10 +2,39 @@ import { RecoilRoot } from "recoil";
 import Image from "next/image";
 import "../styles/globals.css";
 import Link from "next/link";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title> Pay Via UPI </title>
+        <link rel="manifest" href="/manifest.json" />
+        <meta
+          name="description"
+          content=" Add UPI Payment Option to your website under 60 seconds."
+        />
+        <meta name="theme-color" content="#fff" />
+        <meta name="twitter:card" content="summary" key="twcard" />
+        <meta name="twitter:creator" content="@biomathcode" key="twhandle" />
+
+        <meta property="og:url" content="https://payviaupi.com" key="ogurl" />
+        <meta property="og:image" content="/header.png" key="ogimage" />
+        <meta property="og:site_name" content="PayViaUPI" key="ogsitename" />
+        <meta
+          property="og:title"
+          content="Add UPI Payment Option to your website under 60 seconds."
+          key="ogtitle"
+        />
+        <meta
+          property="og:description"
+          content={
+            "Add UPI Payment Option to your website under 60 seconds. Free| Open-sourced | Responsive "
+          }
+          key="ogdesc"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <nav>
         <Link href="/" passHref>
           <li style={{ display: "flex" }}>
