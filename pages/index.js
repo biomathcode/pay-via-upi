@@ -1,6 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+
 import SubscriptionEmail from "../components/subemail";
 import Step1 from "../components/step1";
 import Step2 from "../components/step2";
@@ -14,7 +13,8 @@ import matches from "validator/lib/matches";
 import { motion } from "framer-motion";
 import Script from "next/script";
 
-import { supabase } from "../utils/supabaseClient";
+// add a loading bar
+// debug the selection bug
 
 const RenderComponet = ({ state }) => {
   const components = useCallback(() => {
@@ -241,35 +241,6 @@ export default function Home() {
             </div>
           </div>
         )}
-
-        <footer className={styles.footer}>
-          <div className="flex column" style={{ gap: "20px" }}>
-            <a
-              href="https://twitter.com/biomathcode"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Created by
-              {"\u2002Pratik Sharma "}
-            </a>
-            <a
-              href="https://github.com/pratiksharm/pay-via-upi"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Visit Github Repo
-            </a>
-          </div>
-          <div className="flex center">
-            <Image
-              src="/logo.svg"
-              alt="Logo of pay via upi"
-              width="50px"
-              height="50px"
-            />
-            © Copyright 2022
-          </div>
-        </footer>
       </div>
     </>
   );

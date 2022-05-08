@@ -6,6 +6,7 @@ import { useRecoilState } from "recoil";
 import { supabase } from "../utils/supabaseClient";
 import isLength from "validator/lib/isLength";
 import isEmail from "validator/lib/isEmail";
+import { Loader } from "./Icons";
 
 function SubscriptionEmail() {
   const [_, setEmailAtom] = useRecoilState(emailAtom);
@@ -16,6 +17,8 @@ function SubscriptionEmail() {
 
   const [email, setEmail] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   const handleName = (e) => {
     setName(e.target.value);
   };
@@ -25,13 +28,10 @@ function SubscriptionEmail() {
   };
 
   const validate = async () => {
+    setLoading(true);
     const emailCheck = isEmail(email);
 
     const nameCheck = isLength(name, { min: 3 });
-
-    console.log(emailCheck);
-
-    console.log(nameCheck);
 
     if (emailCheck && nameCheck) {
       const updateData = {
@@ -40,6 +40,8 @@ function SubscriptionEmail() {
       };
       let { data, error } = await supabase.from("mail").insert(updateData);
       if (error) {
+        setLoading(false);
+
         setError(error.details);
         if (error.code === "23505") {
           setError("yeah! Already a user. Scroll down...");
@@ -47,11 +49,12 @@ function SubscriptionEmail() {
         }
       }
       if (data) {
-        console.log(data);
         setEmailAtom({ is_valide: true });
         setError("You are in!!!! Scroll Down");
       }
+      setLoading(false);
     } else {
+      setLoading(false);
       setError(
         "Please check your email. Name length can not be less than 3 letters. "
       );
@@ -89,8 +92,19 @@ function SubscriptionEmail() {
               placeholder="example@gmail.com"
             />
           </div>
-          {error && <p>{error}</p>}
+          <div>{error && <p>{error}</p>}</div>
+          <div></div>
+
           <button onClick={validate}>Sure!</button>
+          {loading ? (
+            <object
+              type="image/svg+xml"
+              data="/loader.svg"
+              style={{ width: "30px" }}
+            >
+              svg-animation
+            </object>
+          ) : null}
         </motion.div>
       </div>
     </>

@@ -55,7 +55,6 @@ button {
   font-size: 14px;
   display: flex;
   border-radius: 5px;
-  outline: none;
   border: none;
   padding: 10px 20px 10px 20px;
   transition: all 0.2s ease-in;
@@ -143,6 +142,22 @@ a {
   box-sizing: border-box;
 }
 
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
 .max {
   max-width: 350px;
   max-height: 700px;
@@ -206,4 +221,11 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width: 480px) {
+  .responsive {
+    flex-direction: column !important;
+    gap: 30px;
+  }
 }

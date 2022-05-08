@@ -8,20 +8,20 @@ function Step2() {
 
   const [data, setData] = useRecoilState(scriptAtom);
 
-  const handleList = (el) => {
-    if (amountList.includes(el.target.innerText)) {
-      const newlist = amountList.filter((e) => e !== el.target.innerText);
+  function handleList(el) {
+    if (amountList.includes(el)) {
+      const newlist = amountList.filter((e) => e !== el);
       setAmountList([...newlist]);
     }
-    if ((amountList.length < 4) & !amountList.includes(el.target.innerText)) {
+    if ((amountList.length < 4) & !amountList.includes(el)) {
       const amoutList = amountList.length === null ? true : false;
       if (amoutList) {
-        setAmountList([el.target.value]);
+        setAmountList([el]);
       } else {
-        setAmountList([...amountList, el.target.innerText]);
+        setAmountList([...amountList, el]);
       }
     }
-  };
+  }
   return (
     <motion.div
       initial={{ opacity: 0, x: "-10vw" }}
@@ -58,7 +58,7 @@ function Step2() {
                 <div
                   tabIndex="0"
                   value={el}
-                  onClick={handleList}
+                  onClick={() => handleList(el)}
                   className="listItem"
                   style={{
                     padding: "10px 10px",

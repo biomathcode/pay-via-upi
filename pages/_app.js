@@ -23,6 +23,35 @@ function MyApp({ Component, pageProps }) {
       <RecoilRoot>
         <Component {...pageProps} />
       </RecoilRoot>
+
+      <footer className="footer responsive">
+        <div className="flex column responsive" style={{ gap: "20px" }}>
+          <a
+            href="https://twitter.com/biomathcode"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Created by
+            {"\u2002Pratik Sharma "}
+          </a>
+          <a
+            href="https://github.com/pratiksharm/pay-via-upi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit Github Repo
+          </a>
+        </div>
+        <div className="flex center">
+          <Image
+            src="/logo.svg"
+            alt="Logo of pay via upi"
+            width="50px"
+            height="50px"
+          />
+          © Copyright 2022
+        </div>
+      </footer>
     </>
   );
 }
