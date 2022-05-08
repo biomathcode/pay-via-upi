@@ -246,6 +246,9 @@ export default function Home() {
           </div>
         )}
       </div>
+      <div className="flex center">
+        <p>*Spoiler: We are not a payment gateway</p>
+      </div>
     </>
   );
 }
