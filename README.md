@@ -2,6 +2,7 @@
 
 Add UPI Donation option to your website under 60 seconds.
 
+Long Story Short: Wanted to create UPI stitchers that we see on Indian Store, for my website.
 
 ## Features
 - Simple
@@ -10,18 +11,24 @@ Add UPI Donation option to your website under 60 seconds.
 - Free and Open Source
 
 
+## CodeSandbox Demo Links
+
+- React - [here](https://codesandbox.io/s/clever-franklin-b9r2j2)
+- Nextjs - [here](https://codesandbox.io/s/pay-via-upi-demo-hryroz)
+- Vanilla - [here](https://codesandbox.io/s/crimson-cdn-95252g)
+- Live - [here](https://payviaupi.com)
+
+
+## Instruction to get the script running on your website
+
+
+1. Go to [payviaupi.com](https://payviaupi.com)
+2. Create your script with UPI details and copy it. 
+3. Paste your script inside the head tag of your website.
 
 
 
-
-
-
-
-
-
-
-
-
+* PLEASE DON'T ADD YOUR UPI ID WITH YOUR PHONE NUMBER. ALTHOUGH IT WOULD WORK. BUT EXPOSING YOUR PHONE NUMBER TO PUBLIC IS NOT A GOOD IDEA.
 
 ## Getting Started
 

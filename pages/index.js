@@ -110,7 +110,7 @@ export default function Home() {
       </Head>
 
       <Script
-        src="https://unpkg.com/pay-via-upi-lib@0.0.2/dist/index.js"
+        src="https://unpkg.com/pay-via-upi-lib"
         async
         data-name="pay-via-upi"
         data-cfasync="false"
