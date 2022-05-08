@@ -8,7 +8,7 @@ import { ClipboardIcon } from "./Icons";
 const linkData = [
   {
     link: "https://help.wixanswers.com/kb/en/article/adding-custom-css-and-javascript-to-your-help-center",
-    label: " How to add pay via upi button on wix site?",
+    label: " How to add Custom JS script on wix site?",
   },
   {
     link: "https://themeisle.com/blog/wordpress-custom-javascript/",
