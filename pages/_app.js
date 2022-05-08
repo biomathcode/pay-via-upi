@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
-          content=" Add UPI Payment Option to your website under 60 seconds."
+          content=" Add UPI Donation Option to your website under 60 seconds."
         />
         <meta name="theme-color" content="#fff" />
         <meta name="twitter:card" content="summary" key="twcard" />
@@ -23,13 +23,13 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:site_name" content="PayViaUPI" key="ogsitename" />
         <meta
           property="og:title"
-          content="Add UPI Payment Option to your website under 60 seconds."
+          content="Add UPI Donation Option to your website under 60 seconds."
           key="ogtitle"
         />
         <meta
           property="og:description"
           content={
-            "Add UPI Payment Option to your website under 60 seconds. Free| Open-sourced | Responsive "
+            "Add UPI Donation Option to your website under 60 seconds. Free| Open-sourced | Responsive "
           }
           key="ogdesc"
         />

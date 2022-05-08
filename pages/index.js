@@ -88,7 +88,7 @@ export default function Home() {
         <title> Pay Via UPI </title>
         <meta
           name="description"
-          content=" Add UPI Payment Option to your website under 60 seconds."
+          content=" Add UPI Donation Option to your website under 60 seconds."
         />
 
         <meta property="og:url" content="https://payviaupi.com" key="ogurl" />
@@ -96,13 +96,13 @@ export default function Home() {
         <meta property="og:site_name" content="PayViaUPI" key="ogsitename" />
         <meta
           property="og:title"
-          content="Add UPI Payment Option to your website under 60 seconds."
+          content="Add UPI Donation Option to your website under 60 seconds."
           key="ogtitle"
         />
         <meta
           property="og:description"
           content={
-            "Add UPI Payment Option to your website under 60 seconds. Free| Open-sourced | Responsive "
+            "Add UPI Donation Option to your website under 60 seconds. Free| Open-sourced | Responsive "
           }
           key="ogdesc"
         />
@@ -128,7 +128,7 @@ export default function Home() {
       <div className="container">
         <main className="main">
           <h1 style={{ textAlign: "center" }}>
-            Add UPI payment option to
+            Add UPI Donation option to
             <br />
             your website under
             <br />
