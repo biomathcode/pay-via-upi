@@ -43,7 +43,7 @@ nav {
   justify-content: space-between;
   border-bottom: 2px solid #eee;
   backdrop-filter: blur(10px);
-  background-color: transparent;
+  background-color: white;
   z-index: 3;
 }
 
@@ -72,7 +72,12 @@ button:hover {
 h1 {
   font-size: clamp(2rem, 10vw, 4rem);
   color: var(--brand-color);
-  margin: 0;
+  line-height: 1.5em;
+}
+
+h2 {
+  font-size: clamp(1rem, 5vw, 2rem);
+  color: var(--brand-color);
 }
 
 a {
@@ -228,4 +233,19 @@ a {
     flex-direction: column !important;
     gap: 30px;
   }
+}
+
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }

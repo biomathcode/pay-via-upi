@@ -68,7 +68,7 @@ function SubscriptionEmail() {
           animate={{ opacity: 1, x: 0 }}
           initial={{ opacity: 0, x: "10vw" }}
         >
-          <h3>Get the Access now !</h3>
+          <h2>Get Access now !</h2>
           <p className=" max ">
             We are still in Beta! We would like to update you if there are any
             changes.

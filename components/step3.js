@@ -33,7 +33,7 @@ function Step3() {
     return a - b;
   });
 
-  const scriptTag = `<script src='https://unpkg.com/pay-via-upi-lib@0.0.1/dist/index.js' async data-name="pay-via-upi" data-cfasync="false" data-pa="${script.upi_id.toLowerCase()}" data-tn="" data-cu="INR" data-pn="${
+  const scriptTag = `<script src='https://unpkg.com/pay-via-upi-lib@0.0.2/dist/index.js' async data-name="pay-via-upi" data-cfasync="false" data-pa="${script.upi_id.toLowerCase()}" data-tn="" data-cu="INR" data-pn="${
     script.name
   }" data-amount_list="${sortedAmount.join()}" data-label="${
     script.button_label

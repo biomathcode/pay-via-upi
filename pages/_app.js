@@ -18,7 +18,6 @@ function MyApp({ Component, pageProps }) {
             <div className="logo"> Pay Via UPI</div>
           </li>
         </Link>
-        <li className="">Watch Demo</li>
       </nav>
       <RecoilRoot>
         <Component {...pageProps} />

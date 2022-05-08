@@ -12,6 +12,7 @@ import isLength from "validator/lib/isLength";
 import matches from "validator/lib/matches";
 import { motion } from "framer-motion";
 import Script from "next/script";
+import Link from "next/link";
 
 // add a loading bar
 // debug the selection bug
@@ -113,7 +114,7 @@ export default function Home() {
       </Head>
 
       <Script
-        src="./static/main.js"
+        src="https://unpkg.com/pay-via-upi-lib@0.0.2/dist/index.js"
         async
         data-name="pay-via-upi"
         data-cfasync="false"
@@ -129,7 +130,7 @@ export default function Home() {
         strategy="beforeInteractive"
       ></Script>
       <div className="container">
-        <main className="main" style={{ marginTop: "40px" }}>
+        <main className="main">
           <motion.h1
             animate={{ y: 0, opacity: 1 }}
             transition={{
@@ -139,41 +140,27 @@ export default function Home() {
               stiffness: 200,
             }}
             initial={{ y: "-10vh", opacity: 0 }}
+            style={{ textAlign: "center" }}
           >
-            Add UPI Payment Option
+            Add UPI payment option to
             <br />
-            to your Website
+            your website under
             <br />
-            <span className="text-decoration">Under 60 Seconds.</span>
+            <span className="text-decoration"> 60 seconds.</span>
           </motion.h1>
-          <motion.p
-            animate={{ x: 0, opacity: 1 }}
-            transition={{
-              delay: 1,
-              duration: 1.5,
-              type: "spring",
-              stiffness: 200,
-            }}
-            initial={{ x: "10vh", opacity: 0 }}
-            style={{ marginTop: "50px" }}
-          >
-            *Spoiler: We are not a payment gateway!
-          </motion.p>
           <div className="flex" style={{ gap: "30px" }}>
-            {["Open Sourced", "Free", "Responsive"].map((el, i) => {
+            {["Open Source", "Free", "Responsive"].map((el, i) => {
               return (
                 <motion.p
                   key={el}
                   transition={{
-                    delay: 1.5 + i * 0.2,
+                    delay: 0.5 + i * 0.2,
                     type: "spring",
                     stiffness: 200,
                   }}
                   style={{
-                    padding: "10px",
-                    border: "2px solid #eee",
-                    borderRadius: "10px",
                     color: "#4b4b4b",
+                    fontWeight: "600",
                   }}
                   animate={{ opacity: 1 }}
                   initial={{ opacity: 0 }}
@@ -185,6 +172,27 @@ export default function Home() {
               );
             })}
           </div>
+
+          <motion.div
+            style={{ margin: "50px" }}
+            transition={{
+              delay: 1,
+              type: "spring",
+              stiffness: 200,
+            }}
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+          >
+            <Link href="https://youtu.be/W9fLFHTlOkQ" passHref>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                className="preview-link"
+              >
+                Watch this
+              </a>
+            </Link>
+          </motion.div>
 
           <div style={{ marginTop: "100px" }}>
             <DownIcon />
