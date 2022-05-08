@@ -127,58 +127,30 @@ export default function Home() {
       ></Script>
       <div className="container">
         <main className="main">
-          <motion.h1
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              delay: 0.1,
-              duration: 1.5,
-              type: "spring",
-              stiffness: 200,
-            }}
-            initial={{ y: "-10vh", opacity: 0 }}
-            style={{ textAlign: "center" }}
-          >
+          <h1 style={{ textAlign: "center" }}>
             Add UPI payment option to
             <br />
             your website under
             <br />
             <span className="text-decoration"> 60 seconds.</span>
-          </motion.h1>
+          </h1>
           <div className="flex" style={{ gap: "30px" }}>
             {["Open Source", "Free", "Responsive"].map((el, i) => {
               return (
-                <motion.p
+                <p
                   key={el}
-                  transition={{
-                    delay: 0.5 + i * 0.2,
-                    type: "spring",
-                    stiffness: 200,
-                  }}
                   style={{
                     color: "#4b4b4b",
                     fontWeight: "600",
                   }}
-                  animate={{ opacity: 1 }}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
                 >
                   {el}
-                </motion.p>
+                </p>
               );
             })}
           </div>
 
-          <motion.div
-            style={{ margin: "50px" }}
-            transition={{
-              delay: 1,
-              type: "spring",
-              stiffness: 200,
-            }}
-            animate={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-          >
+          <div style={{ margin: "50px" }}>
             <Link href="https://youtu.be/W9fLFHTlOkQ" passHref>
               <a
                 target="_blank"
@@ -188,7 +160,7 @@ export default function Home() {
                 Watch this
               </a>
             </Link>
-          </motion.div>
+          </div>
 
           <div style={{ marginTop: "100px" }}>
             <DownIcon />
