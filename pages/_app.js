@@ -14,20 +14,22 @@ function MyApp({ Component, pageProps }) {
           name="description"
           content=" Add UPI Donation Option to your website under 60 seconds."
         />
+        <meta
+          name="image"
+          property="og:image"
+          content="https://www.payviaupi.com/header.png"
+        />
+        <meta name="author" content="Pratik Sharma" />
         <meta name="theme-color" content="#fff" />
         <meta name="twitter:card" content="summary_large_image" key="twcard" />
         <meta name="twitter:creator" content="@biomathcode" key="twhandle" />
         <meta name="twitter:title" content="Pay Via UPI" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://payviaupi.com" key="ogurl" />
-        <meta
-          property="og:image"
-          content="https://www.payviaupi.com/header.png"
-          key="ogimage"
-        />
 
         <meta property="og:site_name" content="PayViaUPI" key="ogsitename" />
         <meta
+          name="url"
           property="og:url"
           content="https://payviaupi.com"
           key="ogsitename"
