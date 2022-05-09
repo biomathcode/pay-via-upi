@@ -56,7 +56,7 @@ function MyApp({ Component, pageProps }) {
               src="/logo.svg"
               alt="Logo of pay via upi"
               width="40px"
-              height="40x"
+              height="40px"
             />
             <div className="logo"> Pay Via UPI</div>
           </li>
