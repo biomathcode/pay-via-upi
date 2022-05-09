@@ -19,7 +19,11 @@ function MyApp({ Component, pageProps }) {
         <meta name="twitter:creator" content="@biomathcode" key="twhandle" />
 
         <meta property="og:url" content="https://payviaupi.com" key="ogurl" />
-        <meta property="og:image" content="/header.png" key="ogimage" />
+        <meta
+          property="og:image"
+          content="https://www.payviaupi.com/header.png"
+          key="ogimage"
+        />
         <meta property="og:site_name" content="PayViaUPI" key="ogsitename" />
         <meta
           property="og:title"
