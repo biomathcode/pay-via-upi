@@ -15,11 +15,7 @@ function MyApp({ Component, pageProps }) {
           content=" Add UPI Donation Option to your website under 60 seconds."
         />
         <meta name="theme-color" content="#fff" />
-        <meta
-          name="twitter:card"
-          content="Add UPI Donation Option to your website under 60 seconds."
-          key="twcard"
-        />
+        <meta name="twitter:card" content="summary_large_image" key="twcard" />
         <meta name="twitter:creator" content="@biomathcode" key="twhandle" />
 
         <meta property="og:type" content="product" />
