@@ -92,7 +92,11 @@ export default function Home() {
         />
 
         <meta property="og:url" content="https://payviaupi.com" key="ogurl" />
-        <meta property="og:image" content="/header.png" key="ogimage" />
+        <meta
+          property="og:image"
+          content="https://payviaupi.com/header.png"
+          key="ogimage"
+        />
         <meta property="og:site_name" content="PayViaUPI" key="ogsitename" />
         <meta
           property="og:title"

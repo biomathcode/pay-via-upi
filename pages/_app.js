@@ -15,9 +15,14 @@ function MyApp({ Component, pageProps }) {
           content=" Add UPI Donation Option to your website under 60 seconds."
         />
         <meta name="theme-color" content="#fff" />
-        <meta name="twitter:card" content="summary" key="twcard" />
+        <meta
+          name="twitter:card"
+          content="Add UPI Donation Option to your website under 60 seconds."
+          key="twcard"
+        />
         <meta name="twitter:creator" content="@biomathcode" key="twhandle" />
 
+        <meta property="og:type" content="product" />
         <meta property="og:url" content="https://payviaupi.com" key="ogurl" />
         <meta
           property="og:image"
@@ -25,6 +30,11 @@ function MyApp({ Component, pageProps }) {
           key="ogimage"
         />
         <meta property="og:site_name" content="PayViaUPI" key="ogsitename" />
+        <meta
+          property="og:url"
+          content="https://payviaupi.com"
+          key="ogsitename"
+        />
         <meta
           property="og:title"
           content="Add UPI Donation Option to your website under 60 seconds."
