@@ -86,7 +86,7 @@ export default function Home() {
     <>
       <Head>
         <title> Pay Via UPI </title>
-        <meta name="title">Pay Via UPI</meta>
+        <meta name="title" content="Pay Via UPI" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="UTF-8" />
@@ -97,6 +97,7 @@ export default function Home() {
 
         <meta property="og:url" content="https://payviaupi.com" key="ogurl" />
         <meta
+          name="image"
           property="og:image"
           content="https://payviaupi.com/header.png"
           key="ogimage"
