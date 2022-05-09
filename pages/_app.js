@@ -17,8 +17,8 @@ function MyApp({ Component, pageProps }) {
         <meta name="theme-color" content="#fff" />
         <meta name="twitter:card" content="summary_large_image" key="twcard" />
         <meta name="twitter:creator" content="@biomathcode" key="twhandle" />
-
-        <meta property="og:type" content="product" />
+        <meta name="twitter:title" content="Pay Via UPI" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://payviaupi.com" key="ogurl" />
         <meta
           property="og:image"
