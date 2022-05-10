@@ -20,7 +20,7 @@ const generateQR = (text) => {
   }
 };
 
-const Heading = styled("div", {
+export const Heading = styled("div", {
   position: "absolute",
   top: "10px",
   left: "80px",
@@ -74,7 +74,7 @@ const QRcodeImage = styled("img", {
   marginRight: "auto",
 });
 
-const Overlay = styled(Dialog.Overlay, {
+export const Overlay = styled(Dialog.Overlay, {
   background: "rgba(0 0 0 / 0.5)",
   position: "fixed",
   top: 0,
@@ -86,13 +86,13 @@ const Overlay = styled(Dialog.Overlay, {
   overflowY: "auto",
 });
 
-const Trigger = styled(Dialog.Trigger, {
+export const Trigger = styled(Dialog.Trigger, {
   position: "fixed",
   bottom: "15px",
   right: "15px",
 });
 
-const Content = styled(Dialog.Content, {
+export const Content = styled(Dialog.Content, {
   minWidth: 300,
   maxWidth: 420,
   background: "white",
@@ -109,7 +109,7 @@ const Content = styled(Dialog.Content, {
   borderRadius: "10px",
 });
 
-const Close = styled(Dialog.Close, {
+export const Close = styled(Dialog.Close, {
   width: "30px",
   height: "30px",
   maxHeight: "50px",
