@@ -13,6 +13,68 @@ import matches from "validator/lib/matches";
 import { motion } from "framer-motion";
 import Script from "next/script";
 import Link from "next/link";
+import * as Dialog from "@radix-ui/react-dialog";
+import {
+  CloseIcon,
+  GpayIcon,
+  PhonepeIcon,
+  PaytmIcon,
+} from "../components/Icons";
+import { styled } from "@stitches/react";
+
+const Overlay = styled(Dialog.Overlay, {
+  background: "rgba(0 0 0 / 0.5)",
+  position: "fixed",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  display: "grid",
+  placeItems: "center",
+  overflowY: "auto",
+  zIndex: 20,
+});
+
+const Trigger = styled(Dialog.Trigger, {
+  zIndex: 0,
+});
+
+const Content = styled(Dialog.Content, {
+  minWidth: "80%",
+  minHeight: "40%",
+  background: "white",
+
+  borderRight: "10px",
+  display: "flex",
+  flexDirection: "column",
+  alignContent: "flex-end",
+  textAlign: "center",
+  fontFamily: "sans-serif",
+
+  borderRadius: "10px",
+});
+
+const Close = styled(Dialog.Close, {
+  width: "40px",
+  height: "40px",
+
+  backgroundColor: "rgba(0,0,0,0)",
+  position: "absolute",
+  right: "30px",
+  top: "30px",
+  border: "2px solid #000",
+
+  color: "#000",
+  display: "flex",
+  alignContent: "center",
+  alignItems: "center",
+  boxShadow: "none",
+  borderRadius: "50%",
+  padding: "5px",
+  "&:hover": {
+    color: "#eee",
+  },
+});
 
 // add a loading bar
 // debug the selection bug
@@ -143,7 +205,87 @@ export default function Home() {
             <br />
             <span className="text-decoration"> 60 seconds.</span>
           </h1>
-          <div className="flex" style={{ gap: "30px" }}>
+          <div className="flex" style={{ marginBottom: "40px" }}>
+            <div
+              style={{
+                margin: "0px 10px",
+                display: "flex",
+                alignContent: "center",
+                alignItems: "center",
+              }}
+            >
+              Support For
+            </div>
+            <div
+              style={{
+                margin: "0px 10px",
+                display: "flex",
+                alignContent: "center",
+                alignItems: "center",
+                width: "40px",
+              }}
+            >
+              <GpayIcon />
+            </div>
+            <div
+              style={{
+                margin: "0px 10px",
+                display: "flex",
+                alignContent: "center",
+                alignItems: "center",
+                width: "40px",
+              }}
+            >
+              <PaytmIcon />
+            </div>
+            <div
+              style={{
+                margin: "0px 10px",
+                display: "flex",
+                alignContent: "center",
+                alignItems: "center",
+                width: "40px",
+              }}
+            >
+              <PhonepeIcon />
+            </div>
+          </div>
+
+          {/* <div style={{ margin: "50px" }}>
+            <Link href="https://youtu.be/W9fLFHTlOkQ" passHref>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                className="preview-link"
+              >
+                Watch this
+              </a>
+            </Link>
+          </div> */}
+
+          <Dialog.Root>
+            <Trigger>Watch this</Trigger>
+            <Dialog.Portal>
+              <Overlay>
+                <Content>
+                  <Close>
+                    <CloseIcon width="30" height="30" />
+                  </Close>
+                  <div className="video-container">
+                    <iframe
+                      src="https://www.youtube.com/embed/W9fLFHTlOkQ"
+                      className="video"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope;"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </Content>
+              </Overlay>
+            </Dialog.Portal>
+          </Dialog.Root>
+
+          {/* <div className="flex" style={{ gap: "30px", marginTop: "30px" }}>
             {["Open Source", "Free", "Responsive"].map((el, i) => {
               return (
                 <p
@@ -157,23 +299,20 @@ export default function Home() {
                 </p>
               );
             })}
-          </div>
+          </div> */}
 
-          <div style={{ margin: "50px" }}>
-            <Link href="https://youtu.be/W9fLFHTlOkQ" passHref>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                className="preview-link"
-              >
-                Watch this
-              </a>
-            </Link>
-          </div>
+          <div
+            style={{
+              marginTop: "100px",
+              display: "flex",
 
-          <div style={{ marginTop: "100px" }}>
-            <DownIcon />
-            Scroll Down
+              alignContent: "center",
+              alignItems: "center",
+              width: "60px",
+            }}
+          >
+            <DownIcon width="40" height="40" />
+            <span>Scroll Down</span>
           </div>
         </main>
 

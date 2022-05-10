@@ -106,7 +106,7 @@ li {
 
 .logo {
   font-size: 1rem;
-  font-weight: 100;
+  font-weight: 400;
   padding: 10px;
   border-radius: 10px;
   word-spacing: 0.2rem;
@@ -240,6 +240,7 @@ a {
   padding-bottom: 56.25%;
   position: relative;
   height: 0;
+  width: 90%;
 }
 
 .video-responsive iframe {
@@ -248,4 +249,9 @@ a {
   height: 100%;
   width: 100%;
   position: absolute;
+}
+
+.video {
+  aspect-ratio: 16 / 9;
+  width: 100%;
 }

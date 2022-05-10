@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
-          content=" Add UPI Donation Option to your website under 60 seconds."
+          content=" Add UPI Donation Option to your website under 60 seconds. Create upi qrcode. Get free upi qrcode for your website. "
         />
         <meta
           name="image"
