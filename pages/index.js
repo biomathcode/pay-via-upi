@@ -21,6 +21,7 @@ import {
   PaytmIcon,
 } from "../components/Icons";
 import { styled } from "@stitches/react";
+import BlogContainer from "../components/Blogs";
 
 const Overlay = styled(Dialog.Overlay, {
   background: "rgba(0 0 0 / 0.5)",
@@ -365,6 +366,11 @@ export default function Home() {
             </div>
           </div>
         )}
+      </div>
+      <div className="container">
+        <div className="main">
+          <BlogContainer />
+        </div>
       </div>
       <div className="flex center">
         <p>*Spoiler: We are not a payment gateway</p>
