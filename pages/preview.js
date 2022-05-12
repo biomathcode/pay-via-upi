@@ -167,7 +167,7 @@ const Modal = ({ amounts, pa, pn, button_label }) => {
 
                 <Heading>
                   UPI payment to
-                  <Name>Pratik Sharma</Name>
+                  <Name>{pn}</Name>
                 </Heading>
                 <div>
                   <div className="flex column">
