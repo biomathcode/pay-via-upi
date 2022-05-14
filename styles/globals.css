@@ -8,13 +8,22 @@ body {
 }
 
 :root {
-  --header-size: 50px;
+  --header-size: 60px;
   --nav-background: #fafafa;
   --brand-color: #353434;
   --primary-color: #4f4f4f;
-  --text-color: #000;
+  --text-color: #353434;
   --text-color-secondary: #666;
   --text-color-dark: #eee;
+  --brand-green: #0acf83;
+  --brand-purple: #a259ff;
+  --brand-orange: #ff7262;
+  --brand-blue: #1abcfe;
+  --brand-red: #f24e1e;
+  --brand-pink: #e06085;
+  --brand-yellow: #f9f871;
+  --brand-lightgreen: #abf88b;
+  --brand-violet: #7588e4;
 }
 
 input {
@@ -24,7 +33,7 @@ input {
   border-radius: 10px;
   padding: 1px 5px 1px 15px;
   fontsize: 16px;
-  margin-top: 10px;
+  margin: 20px 0px;
 }
 
 label {
@@ -33,17 +42,17 @@ label {
 
 nav {
   height: var(--header-size);
-  position: fixed;
+  position: static;
   top: 0;
   width: 100%;
   font-family: sans-serif;
-  padding: 0 40px;
+  padding: 0 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #eee;
-  backdrop-filter: blur(10px);
-  background-color: white;
+  border-bottom: 2px solid gray;
+
+  background-color: #fff;
   z-index: 3;
 }
 
@@ -70,7 +79,7 @@ button:hover {
 }
 
 h1 {
-  font-size: clamp(2rem, 10vw, 4rem);
+  font-size: clamp(1rem, 20vw, 2rem);
   color: var(--brand-color);
   line-height: 1.5em;
 }
@@ -92,8 +101,6 @@ li {
 
 .flex {
   display: flex;
-  gap: 3px;
-  margin-bottom: 10px;
 }
 
 .js {
@@ -105,15 +112,15 @@ li {
 }
 
 .logo {
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
   padding: 10px;
   border-radius: 10px;
   word-spacing: 0.2rem;
   list-style: none;
-  text-decoration: underline 2px;
-  text-decoration-color: #8fce00;
-  text-underline-offset: 5px;
+
+  color: #353434;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
@@ -231,7 +238,6 @@ a {
 @media only screen and (max-width: 480px) {
   .responsive {
     flex-direction: column !important;
-    gap: 30px;
   }
 }
 
@@ -254,4 +260,86 @@ a {
 .video {
   aspect-ratio: 16 / 9;
   width: 100%;
+}
+
+.bluebox {
+  background-color: var(--brand-blue);
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+}
+
+.redbox {
+  background-color: var(--brand-red);
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+}
+
+.greenbox {
+  background-color: var(--brand-green);
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+}
+
+.orangebox {
+  background-color: var(--brand-orange);
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+}
+
+.purplebox {
+  background-color: var(--brand-purple);
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+}
+
+.mr-10 {
+  margin-right: 10%;
+}
+
+.mr-50 {
+  margin-right: 50px;
+}
+
+.ml-10 {
+  margin-left: 10%;
+}
+
+.ml-50 {
+  margin-left: 50px;
+}
+
+.mt-10 {
+  margin-top: 100px;
+}
+
+.mb-10 {
+  margin-bottom: 10%;
+}
+
+.gap-10 {
+  gap: 10%;
+}
+
+.ja {
+  justify-content: space-around;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.gap-res {
+  gap: 100px;
+}
+
+@media only screen and (max-width: 480px) {
+  .gap-res {
+    gap: 10px;
+    margin-top: 25%;
+  }
 }

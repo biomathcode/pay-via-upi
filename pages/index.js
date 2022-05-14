@@ -1,10 +1,9 @@
 import Head from "next/head";
 
-import SubscriptionEmail from "../components/subemail";
 import Step1 from "../components/step1";
 import Step2 from "../components/step2";
 import Step3 from "../components/step3";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { amountsAtom, emailAtom, errorAtom, scriptAtom } from "../lib/Store";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { DownIcon, InfoIcon } from "../components/Icons";
@@ -12,36 +11,15 @@ import isLength from "validator/lib/isLength";
 import matches from "validator/lib/matches";
 import { motion } from "framer-motion";
 import Script from "next/script";
-import Link from "next/link";
-import * as Dialog from "@radix-ui/react-dialog";
-import {
-  CloseIcon,
-  GpayIcon,
-  PhonepeIcon,
-  PaytmIcon,
-} from "../components/Icons";
+import { GpayIcon, PhonepeIcon, PaytmIcon } from "../components/Icons";
 import { styled } from "@stitches/react";
 import BlogContainer from "../components/Blogs";
+import BlueHeader from "../components/ColorHeader";
+import Image from "next/image";
+import Marquee from "react-fast-marquee";
 
-const Overlay = styled(Dialog.Overlay, {
-  background: "rgba(0 0 0 / 0.5)",
-  position: "fixed",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  display: "grid",
-  placeItems: "center",
-  overflowY: "auto",
-  zIndex: 20,
-});
-
-const Trigger = styled(Dialog.Trigger, {
-  zIndex: 0,
-});
-
-const Content = styled(Dialog.Content, {
-  minWidth: "80%",
+const Content = styled("div", {
+  minWidth: "0%",
   minHeight: "40%",
   background: "white",
 
@@ -53,28 +31,6 @@ const Content = styled(Dialog.Content, {
   fontFamily: "sans-serif",
 
   borderRadius: "10px",
-});
-
-const Close = styled(Dialog.Close, {
-  width: "40px",
-  height: "40px",
-
-  backgroundColor: "rgba(0,0,0,0)",
-  position: "absolute",
-  right: "30px",
-  top: "30px",
-  border: "2px solid #000",
-
-  color: "#000",
-  display: "flex",
-  alignContent: "center",
-  alignItems: "center",
-  boxShadow: "none",
-  borderRadius: "50%",
-  padding: "5px",
-  "&:hover": {
-    color: "#eee",
-  },
 });
 
 // add a loading bar
@@ -145,10 +101,15 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {}, []);
+
   return (
     <>
       <Head>
-        <title> Pay Via UPI </title>
+        <title>
+          Pay Via UPI || Create Widget, Button and link for your upi id. Best
+          way to add a upi id to website.
+        </title>
         <meta name="title" content="Pay Via UPI" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -197,176 +158,318 @@ export default function Home() {
         data-position="Right"
         strategy="beforeInteractive"
       ></Script>
-      <div className="container">
-        <main className="main">
-          <h1 style={{ textAlign: "center" }}>
-            Add UPI Donation option to
-            <br />
-            your website under
-            <br />
-            <span className="text-decoration"> 60 seconds.</span>
-          </h1>
-          <div className="flex" style={{ marginBottom: "40px" }}>
-            <div
-              style={{
-                margin: "0px 10px",
-                display: "flex",
-                alignContent: "center",
-                alignItems: "center",
-              }}
-            >
-              Support For
-            </div>
-            <div
-              style={{
-                margin: "0px 10px",
-                display: "flex",
-                alignContent: "center",
-                alignItems: "center",
-                width: "40px",
-              }}
-            >
-              <GpayIcon />
-            </div>
-            <div
-              style={{
-                margin: "0px 10px",
-                display: "flex",
-                alignContent: "center",
-                alignItems: "center",
-                width: "40px",
-              }}
-            >
-              <PaytmIcon />
-            </div>
-            <div
-              style={{
-                margin: "0px 10px",
-                display: "flex",
-                alignContent: "center",
-                alignItems: "center",
-                width: "40px",
-              }}
-            >
-              <PhonepeIcon />
-            </div>
-          </div>
 
-          {/* <div style={{ margin: "50px" }}>
-            <Link href="https://youtu.be/W9fLFHTlOkQ" passHref>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                className="preview-link"
+      <section className="main ">
+        <div className="flex js responsive gap-res">
+          <div className="flex column ">
+            <h1 style={{ textAlign: "center" }}>
+              Add UPI Donation Option
+              <br />
+              to your website under
+              <br />
+              <span className="text-decoration"> 60 seconds.</span>
+            </h1>
+            <div className="flex center" style={{ marginBottom: "40px" }}>
+              <div
+                style={{
+                  margin: "0px 10px",
+                  display: "flex",
+                  alignContent: "center",
+                  alignItems: "center",
+                }}
               >
-                Watch this
-              </a>
-            </Link>
-          </div> */}
-
-          <Dialog.Root>
-            <Trigger>Watch this</Trigger>
-            <Dialog.Portal>
-              <Overlay>
-                <Content>
-                  <Close>
-                    <CloseIcon width="30" height="30" />
-                  </Close>
-                  <div className="video-container">
-                    <iframe
-                      src="https://www.youtube.com/embed/W9fLFHTlOkQ"
-                      className="video"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; encrypted-media; gyroscope;"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                </Content>
-              </Overlay>
-            </Dialog.Portal>
-          </Dialog.Root>
-
-          {/* <div className="flex" style={{ gap: "30px", marginTop: "30px" }}>
-            {["Open Source", "Free", "Responsive"].map((el, i) => {
-              return (
-                <p
-                  key={el}
-                  style={{
-                    color: "#4b4b4b",
-                    fontWeight: "600",
-                  }}
-                >
-                  {el}
-                </p>
-              );
-            })}
-          </div> */}
-
-          <div
-            style={{
-              marginTop: "100px",
-              display: "flex",
-
-              alignContent: "center",
-              alignItems: "center",
-              width: "60px",
-            }}
-          >
-            <DownIcon width="40" height="40" />
-            <span>Scroll Down</span>
-          </div>
-        </main>
-
-        <div className="container">
-          <div className="main">
-            <SubscriptionEmail />
-            {emailData.is_valide && (
-              <div style={{ marginTop: "100px" }}>
-                <DownIcon />
-                Scroll Down
+                Support For
               </div>
-            )}
+              <div
+                style={{
+                  margin: "0px 10px",
+                  display: "flex",
+                  alignContent: "center",
+                  alignItems: "center",
+                  width: "40px",
+                }}
+              >
+                <GpayIcon />
+              </div>
+              <div
+                style={{
+                  margin: "0px 10px",
+                  display: "flex",
+                  alignContent: "center",
+                  alignItems: "center",
+                  width: "40px",
+                }}
+              >
+                <PaytmIcon />
+              </div>
+              <div
+                style={{
+                  margin: "0px 10px",
+                  display: "flex",
+                  alignContent: "center",
+                  alignItems: "center",
+                  width: "40px",
+                }}
+              >
+                <PhonepeIcon />
+              </div>
+            </div>
+          </div>
+          <div className="flex center">
+            <video
+              src="/demo.mov"
+              type="video/mov"
+              controls
+              autoPlay="autoplay"
+              style={{ borderRadius: "10px" }}
+              loop
+              width="270px"
+              height="500px"
+              muted
+            ></video>
           </div>
         </div>
+      </section>
 
-        {emailData.is_valide && (
-          <div className="container">
-            <div className="main">
-              <div className="flex column max">
-                <h3>Let&apos;s do this!!</h3>
-                {error.state === state && error.message && (
-                  <motion.div
-                    initial={{ y: "-10vh", opacity: "0" }}
-                    animate={{ y: 0, opacity: 1 }}
-                  >
-                    <div className="error">
-                      <span aria-label="info-icon">
-                        {" "}
-                        <InfoIcon />{" "}
-                      </span>{" "}
-                      {error.message}
-                    </div>
-                  </motion.div>
-                )}
-                <RenderComponet
-                  state={state}
-                  scriptData={scriptData}
-                  setScriptData={setScriptData}
-                />
+      <section
+        className="container"
+        style={{
+          backgroundColor: "#FFE0DD",
+          width: "100vw",
+          height: "100vh",
+          textAlign: "center",
+        }}
+      >
+        <div className="flex column center">
+          <h1 className="mt-10">
+            Give Your Supporters <br /> a way to say thanks.
+          </h1>
+          <p
+            style={{
+              color: "var(--text-color)",
+              fontSize: "25px",
+              maxWidth: "700px",
+              lineHeight: "40px",
+            }}
+          >
+            Pay Via UPI makes it simple and easy for Supporters <br /> to scan
+            and pay to you directly via UPI.
+          </p>
+        </div>
 
-                <div className="flex js max">
-                  {state === 0 ? null : (
-                    <button onClick={() => setState(state - 1)}>Back</button>
-                  )}
-                  {state === 2 ? null : (
-                    <button onClick={handleNext}> Next</button>
-                  )}
-                </div>
-              </div>
-            </div>
+        <Marquee speed="100" gradient={false}>
+          <BlueHeader
+            color="orange"
+            text="Give your followers a way to say thanks!"
+          />
+          <BlueHeader color="blue" text="Ek Rupiya Tu Humko Udar Dayi De!" />
+          <BlueHeader color="purple" text="Ek Rupee ki pepsi tera bhai Sexy!" />
+          <BlueHeader
+            color="green"
+            text="Main aaj bhi pheke hue paise nahin uthata."
+          />
+          <BlueHeader color="blue" text="Paisa, paise ko kheechta hai." />
+          <BlueHeader
+            color="orange"
+            text="
+Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
+          />
+          <BlueHeader
+            color="green"
+            text="
+          Kalakar sirf taarif ka bhooka hota hai ... paise ka nahi"
+          />
+          <BlueHeader
+            color="blue"
+            text="Maal chahiye chokha, toh note karo ji mota."
+          />
+          <BlueHeader
+            color="orange"
+            text="एक चुटकी सिन्दूर की कीमत तुम क्या जानो रमेश बाबू"
+          />
+          <BlueHeader
+            color="blue"
+            text="Aap convince hogaye ya main aur bolun?"
+          />
+          <BlueHeader color="blue" text="Apna Sapna Money Money" />
+
+          <BlueHeader
+            color="green"
+            text="Na Biwi Na Bacha, Na Baap Bada Na Maiya, The Whole This Is That Ke Bhaiyya Sabse Bada Rupaiyya"
+          />
+          <BlueHeader
+            color="orange"
+            text="Cash meri saans mein Cash Meri Aankhon Mein"
+          />
+          <BlueHeader color="blue" text="Aamdani athani kharcha Rupaiya" />
+          <BlueHeader
+            color="green"
+            text="Ohh Jaane Waale Babu Ek Paisa De De"
+          />
+          <BlueHeader
+            color="blue"
+            text="yeh Duniya hai Kaala Bazaar, yeh Paisa bolta hai "
+          />
+          <BlueHeader
+            color="orange"
+            text="Ek Rupaiya Doge to Do kaam Karugi "
+          />
+        </Marquee>
+      </section>
+      <section
+        className="main flex"
+        style={{
+          backgroundColor: "#D6DFFF",
+          textAlign: "center",
+        }}
+      >
+        <div className="flex js responsive" style={{ gap: "100px" }}>
+          <div className="flex column">
+            <h1>
+              Create A Widget For <br /> Supporters to scan and pay{" "}
+            </h1>
+            <p
+              style={{
+                color: "var(--text-color)",
+                fontSize: "25px",
+                maxWidth: "700px",
+                lineHeight: "40px",
+              }}
+            >
+              No need for coding. <br /> Just Copy and Paste the script on your
+              website.
+            </p>
           </div>
-        )}
+          <div>
+            <Image
+              src="/widgetpreview.png"
+              alt="Add a pay via upi widget to your website. "
+              width="280px"
+              height="550px"
+              style={{ borderRadius: "20px", border: "2px solid #eee" }}
+            />
+          </div>
+        </div>
+      </section>
+      <section
+        className="main flex"
+        style={{ backgroundColor: "#B7FFBA", textAlign: "center" }}
+      >
+        <div
+          className="flex js responsive"
+          style={{ alignContent: "center", alignItems: "center" }}
+        >
+          <div className="flex column">
+            <h1>
+              Donations should be anonymouse. <br /> We Care About Privacy.{" "}
+            </h1>
+            <p
+              style={{
+                color: "var(--text-color)",
+                fontSize: "25px",
+                maxWidth: "700px",
+                lineHeight: "40px",
+              }}
+            >
+              ❌ No Sign in Required <br />❌ No data collection <br /> Spoiler:
+              We are not a payment gateway.
+            </p>
+          </div>
+          <div>
+            <Image
+              src="/anonymouse.svg"
+              alt="donation should be anonymouse"
+              width="500px"
+              height="750px"
+              style={{ borderRadius: "20px", border: "2px solid #eee" }}
+            />
+          </div>
+        </div>
+      </section>
+      <div
+        className="main flex"
+        style={{ backgroundColor: "#FFF8B7", textAlign: "center" }}
+      >
+        <div
+          className="flex js responsive"
+          style={{ alignContent: "center", alignItems: "center" }}
+        >
+          <div className="flex column">
+            <h1>
+              Create Button, Link and Widget. <br /> We got you covered.{" "}
+            </h1>
+            <p
+              style={{
+                color: "var(--text-color)",
+                fontSize: "25px",
+                maxWidth: "700px",
+                lineHeight: "40px",
+              }}
+            >
+              Spread through multiple mediums <br /> Add a Button to Blog.{" "}
+              <br /> Share a UPI link.
+            </p>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                padding: "30px",
+                lineHeight: "40px",
+                borderRadius: "5px",
+                color: "var(--text-color)",
+                fontSize: "20px",
+                fontWeight: "400px",
+              }}
+              href="https://donateviaupi.com/pratiksharma@boi?pn=Pratik Sharma"
+            >
+              donateviaupi.com/<b>yourupi@id</b>
+              <br />
+              ?pn=<b>your name</b>
+            </a>
+          </div>
+          <div className="max flex column">
+            <Image
+              src="/buttons.svg"
+              alt="Button Image"
+              width="700px"
+              height="950px"
+            />
+          </div>
+        </div>
       </div>
+
+      <div className="main">
+        <div className="flex column max">
+          <h1>Add A Widget to your website</h1>
+          {error.state === state && error.message && (
+            <motion.div
+              initial={{ y: "-10vh", opacity: "0" }}
+              animate={{ y: 0, opacity: 1 }}
+            >
+              <div className="error">
+                <span aria-label="info-icon">
+                  {" "}
+                  <InfoIcon />{" "}
+                </span>{" "}
+                {error.message}
+              </div>
+            </motion.div>
+          )}
+          <RenderComponet
+            state={state}
+            scriptData={scriptData}
+            setScriptData={setScriptData}
+          />
+
+          <div className="flex js max">
+            {state === 0 ? null : (
+              <button onClick={() => setState(state - 1)}>Back</button>
+            )}
+            {state === 2 ? null : <button onClick={handleNext}> Next</button>}
+          </div>
+        </div>
+      </div>
+
       <div className="container">
         <div className="main">
           <BlogContainer />

@@ -55,14 +55,21 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <nav>
         <Link href="/" passHref>
-          <li style={{ display: "flex" }}>
+          <li
+            style={{
+              display: "flex",
+              alignContent: "center",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Image
               src="/logo.svg"
               alt="Logo of pay via upi"
-              width="40px"
-              height="40px"
+              width="50px"
+              height="50px"
             />
-            <div className="logo"> Pay Via UPI</div>
+            <div className="logo"> PAY VIA UPI</div>
           </li>
         </Link>
       </nav>
@@ -92,8 +99,8 @@ function MyApp({ Component, pageProps }) {
           <Image
             src="/logo.svg"
             alt="Logo of pay via upi"
-            width="50px"
-            height="50px"
+            width="100px"
+            height="100px"
           />
           © Copyright 2022
         </div>
