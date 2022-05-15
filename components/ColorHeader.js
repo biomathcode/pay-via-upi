@@ -1,7 +1,7 @@
 function ColorHeader({ color, text }) {
   return (
     <div
-      className="max"
+      className="max card-responsive"
       style={{
         backgroundColor: `var(--brand-${color})`,
         color: "white",

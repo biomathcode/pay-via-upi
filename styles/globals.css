@@ -85,8 +85,9 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1rem, 5vw, 2rem);
+  font-size: clamp(1rem, 20vw, 2rem);
   color: var(--brand-color);
+  line-height: 1.5em;
 }
 
 a {
@@ -112,8 +113,8 @@ li {
 }
 
 .logo {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
   color: white;
   padding: 10px;
   border-radius: 10px;
@@ -235,7 +236,7 @@ a {
   align-items: center;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 480px), (max-width: 720px) {
   .responsive {
     flex-direction: column !important;
   }
@@ -322,7 +323,7 @@ a {
 }
 
 .gap-10 {
-  gap: 10%;
+  gap: 20px;
 }
 
 .ja {
@@ -342,4 +343,26 @@ a {
     gap: 10px;
     margin-top: 25%;
   }
+}
+
+@media only screen and (max-width: 480px), (max-width: 720px) {
+  .card-responsive h2 {
+    font-size: clamp(1rem, 20vw, 1.2rem);
+    color: var(--brand-color);
+    line-height: 1.5em;
+  }
+  .card-responsive {
+    width: 300px;
+  }
+}
+
+.headerinput {
+  width: 100%;
+  margin: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+  color: #4b4b4b;
+  border: none;
+  border-radius: 0px;
+  padding: 20px;
 }

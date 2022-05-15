@@ -55,7 +55,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <nav>
         <Link href="/" passHref>
-          <li
+          <div
             style={{
               display: "flex",
               alignContent: "center",
@@ -70,19 +70,20 @@ function MyApp({ Component, pageProps }) {
               height="50px"
             />
             <div className="logo"> PAY VIA UPI</div>
-          </li>
+          </div>
         </Link>
       </nav>
       <RecoilRoot>
         <Component {...pageProps} />
       </RecoilRoot>
 
-      <footer className="footer responsive">
-        <div className="flex column responsive" style={{ gap: "20px" }}>
+      <footer className="footer responsive" style={{ marginBottom: "100px" }}>
+        <div className="flex column  responsive">
           <a
             href="https://twitter.com/biomathcode"
             target="_blank"
             rel="noopener noreferrer"
+            style={{ margin: "20px" }}
           >
             Created by
             {"\u2002Pratik Sharma "}
@@ -91,18 +92,26 @@ function MyApp({ Component, pageProps }) {
             href="https://github.com/pratiksharm/pay-via-upi"
             target="_blank"
             rel="noopener noreferrer"
+            style={{ margin: "20px" }}
           >
             Visit Github Repo
           </a>
         </div>
-        <div className="flex center">
-          <Image
-            src="/logo.svg"
-            alt="Logo of pay via upi"
-            width="100px"
-            height="100px"
-          />
-          © Copyright 2022
+        <div className="flex center gap-10">
+          <div className="flex column gap-10">
+            <div className="flex center">
+              <Image
+                src="/logo.svg"
+                alt="Logo of pay via upi"
+                width="40px"
+                height="40px"
+                style={{ margin: "20px" }}
+              />
+              <div>© Copyright 2022</div>
+            </div>
+
+            <div>admin@payviaupi.com</div>
+          </div>
         </div>
       </footer>
     </>

@@ -6,7 +6,7 @@ import Step3 from "../components/step3";
 import { useState, useCallback, useEffect } from "react";
 import { amountsAtom, emailAtom, errorAtom, scriptAtom } from "../lib/Store";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { DownIcon, InfoIcon } from "../components/Icons";
+import { DownIcon, InfoIcon, LinkIcon } from "../components/Icons";
 import isLength from "validator/lib/isLength";
 import matches from "validator/lib/matches";
 import { motion } from "framer-motion";
@@ -107,16 +107,18 @@ export default function Home() {
     <>
       <Head>
         <title>
-          Pay Via UPI || Create Widget, Button and link for your upi id. Best
-          way to add a upi id to website.
+          Pay Via UPI || Create Widget, Button and link for your upi id.
         </title>
-        <meta name="title" content="Pay Via UPI" />
+        <meta
+          name="title"
+          content="Pay Via UPI || Create Widget, Button and link for your upi id."
+        />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="UTF-8" />
         <meta
           name="description"
-          content=" Add UPI Donation Option to your website under 60 seconds."
+          content="Add UPI Donation Option to your website under 60 seconds. Create pay via upi button, link and widget. Best way to add upi id on website. "
         />
 
         <meta property="og:url" content="https://payviaupi.com" key="ogurl" />
@@ -129,7 +131,7 @@ export default function Home() {
         <meta property="og:site_name" content="PayViaUPI" key="ogsitename" />
         <meta
           property="og:title"
-          content="Add UPI Donation Option to your website under 60 seconds."
+          content="Pay Via UPI || Add UPI Donation Option to your website under 60 seconds."
           key="ogtitle"
         />
         <meta
@@ -160,15 +162,18 @@ export default function Home() {
       ></Script>
 
       <section className="main ">
-        <div className="flex js responsive gap-res">
+        <article className="flex js responsive gap-res">
           <div className="flex column ">
-            <h1 style={{ textAlign: "center" }}>
-              Add UPI Donation Option
-              <br />
-              to your website under
-              <br />
-              <span className="text-decoration"> 60 seconds.</span>
-            </h1>
+            <div className="container">
+              <h1 style={{ textAlign: "center" }}>
+                Add UPI Donation Option
+                <br />
+                to your website under
+                <br />
+                <span className="text-decoration"> 60 seconds.</span>
+              </h1>
+            </div>
+
             <div className="flex center" style={{ marginBottom: "40px" }}>
               <div
                 style={{
@@ -228,7 +233,7 @@ export default function Home() {
               muted
             ></video>
           </div>
-        </div>
+        </article>
       </section>
 
       <section
@@ -240,10 +245,10 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-        <div className="flex column center">
-          <h1 className="mt-10">
+        <article className="flex column center">
+          <h2 className="mt-10">
             Give Your Supporters <br /> a way to say thanks.
-          </h1>
+          </h2>
           <p
             style={{
               color: "var(--text-color)",
@@ -255,7 +260,7 @@ export default function Home() {
             Pay Via UPI makes it simple and easy for Supporters <br /> to scan
             and pay to you directly via UPI.
           </p>
-        </div>
+        </article>
 
         <Marquee speed="100" gradient={false}>
           <BlueHeader
@@ -291,7 +296,6 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
             color="blue"
             text="Aap convince hogaye ya main aur bolun?"
           />
-          <BlueHeader color="blue" text="Apna Sapna Money Money" />
 
           <BlueHeader
             color="green"
@@ -323,11 +327,11 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
           textAlign: "center",
         }}
       >
-        <div className="flex js responsive" style={{ gap: "100px" }}>
-          <div className="flex column">
-            <h1>
+        <article className="flex js responsive" style={{ gap: "100px" }}>
+          <div className="flex column container">
+            <h2>
               Create A Widget For <br /> Supporters to scan and pay{" "}
-            </h1>
+            </h2>
             <p
               style={{
                 color: "var(--text-color)",
@@ -349,20 +353,20 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
               style={{ borderRadius: "20px", border: "2px solid #eee" }}
             />
           </div>
-        </div>
+        </article>
       </section>
       <section
         className="main flex"
         style={{ backgroundColor: "#B7FFBA", textAlign: "center" }}
       >
-        <div
+        <article
           className="flex js responsive"
           style={{ alignContent: "center", alignItems: "center" }}
         >
-          <div className="flex column">
-            <h1>
+          <div className="flex column container">
+            <h2>
               Donations should be anonymouse. <br /> We Care About Privacy.{" "}
-            </h1>
+            </h2>
             <p
               style={{
                 color: "var(--text-color)",
@@ -380,24 +384,24 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
               src="/anonymouse.svg"
               alt="donation should be anonymouse"
               width="500px"
-              height="750px"
+              height="550px"
               style={{ borderRadius: "20px", border: "2px solid #eee" }}
             />
           </div>
-        </div>
+        </article>
       </section>
-      <div
+      <section
         className="main flex"
         style={{ backgroundColor: "#FFF8B7", textAlign: "center" }}
       >
-        <div
+        <article
           className="flex js responsive"
           style={{ alignContent: "center", alignItems: "center" }}
         >
-          <div className="flex column">
-            <h1>
+          <div className="flex column container">
+            <h2>
               Create Button, Link and Widget. <br /> We got you covered.{" "}
-            </h1>
+            </h2>
             <p
               style={{
                 color: "var(--text-color)",
@@ -409,23 +413,24 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
               Spread through multiple mediums <br /> Add a Button to Blog.{" "}
               <br /> Share a UPI link.
             </p>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                padding: "30px",
-                lineHeight: "40px",
-                borderRadius: "5px",
-                color: "var(--text-color)",
-                fontSize: "20px",
-                fontWeight: "400px",
-              }}
-              href="https://donateviaupi.com/pratiksharma@boi?pn=Pratik Sharma"
-            >
-              donateviaupi.com/<b>yourupi@id</b>
-              <br />
-              ?pn=<b>your name</b>
-            </a>
+            <div className="flex center">
+              <input
+                className="headerinput"
+                disabled
+                value={"https://donateviaupi.com/yourupi@id?pn=your name"}
+              ></input>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://donateviaupi.com/pratiksharma@boi?pn=Pratik Sharma"
+              >
+                <LinkIcon />
+              </a>
+            </div>
+
+            {/* donateviaupi.com/<b>yourupi@id</b>
+            <br />
+            ?pn=<b>your name</b> */}
           </div>
           <div className="max flex column">
             <Image
@@ -435,12 +440,50 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
               height="950px"
             />
           </div>
-        </div>
-      </div>
+        </article>
+      </section>
 
-      <div className="main">
-        <div className="flex column max">
-          <h1>Add A Widget to your website</h1>
+      <section
+        className="main flex"
+        style={{ backgroundColor: "#E1CFFF", textAlign: "center" }}
+      >
+        <article
+          className="flex js responsive"
+          style={{ alignContent: "center", alignItems: "center" }}
+        >
+          <div className="flex column container">
+            <h2>We are Free and Open sourced</h2>
+            <p
+              style={{
+                color: "var(--text-color)",
+                fontSize: "25px",
+                maxWidth: "700px",
+                lineHeight: "40px",
+              }}
+            >
+              Star us on Github.
+            </p>
+            <a
+              href="https://github.com/pratiksharm/pay-via-upi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit Github Repo
+            </a>
+          </div>
+          <Image
+            src="/open-sourced.svg"
+            alt="donation should be anonymouse"
+            width="500px"
+            height="550px"
+            style={{ borderRadius: "20px", border: "2px solid #eee" }}
+          />
+        </article>
+      </section>
+
+      <section className="main">
+        <article className="flex column max container">
+          <h2>Add A Widget to your website</h2>
           {error.state === state && error.message && (
             <motion.div
               initial={{ y: "-10vh", opacity: "0" }}
@@ -467,17 +510,19 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
             )}
             {state === 2 ? null : <button onClick={handleNext}> Next</button>}
           </div>
-        </div>
-      </div>
+        </article>
+      </section>
 
       <div className="container">
         <div className="main">
           <BlogContainer />
         </div>
       </div>
-      <div className="flex center">
-        <p>*Spoiler: We are not a payment gateway</p>
-      </div>
     </>
   );
 }
+
+// TODO
+// 1. Learn how to create svg on server if not add the svg  and learn how to add text to them.
+// 2. Update the Create Widget page.
+// 3. Solve the bug on donateviaupi.

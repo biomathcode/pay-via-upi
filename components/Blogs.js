@@ -3,13 +3,6 @@ import Card from "./Card";
 
 const data = [
   {
-    header: "How to add Donate via UPI option on your wix site",
-    description:
-      "Learn step by step how to add UPI qrcode to get payment on your wix site",
-    link: "https://payviaupi.com/wixsite",
-    image: "/header.png",
-  },
-  {
     header: "How to add Pay via UPI option on nextjs site",
     description:
       "Learn step by step how to add UPI qrcode to get payment on your nextjs site",
@@ -20,7 +13,7 @@ const data = [
 
 function BlogContainer() {
   return (
-    <div className="flex column">
+    <article className="flex column">
       <h2>How to ?</h2>
       {data.map((el) => {
         return (
@@ -31,7 +24,7 @@ function BlogContainer() {
           </Link>
         );
       })}
-    </div>
+    </article>
   );
 }
 
