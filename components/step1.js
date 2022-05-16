@@ -11,9 +11,8 @@ function Step1() {
         animate={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: "-10vw" }}
       >
-        <p>PLEASE DON&apos;T ADD YOUR UPI ID WITH YOUR PHONE NUMBER.</p>
         <div className="flex column">
-          <label> Name</label>
+          <label> Name*</label>
           <input
             autoComplete="do-not-autofill"
             value={data.name}
@@ -22,7 +21,7 @@ function Step1() {
           />
         </div>
         <div className="flex column">
-          <label>UPI ID</label>
+          <label>UPI ID*</label>
 
           <input
             autoComplete="do-not-autofill"

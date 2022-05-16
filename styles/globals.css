@@ -6,6 +6,9 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   boxsizing: border-box;
 }
+html {
+  scroll-behavior: smooth !important;
+}
 
 :root {
   --header-size: 60px;
@@ -37,7 +40,7 @@ input {
 }
 
 label {
-  color: #6b6b6b;
+  color: var(-text-color);
 }
 
 nav {
@@ -345,7 +348,9 @@ a {
   }
 }
 
-@media only screen and (max-width: 480px), (max-width: 720px) {
+@media only screen and (max-width: 480px),
+  (max-width: 720px),
+  (max-height: 720px) {
   .card-responsive h2 {
     font-size: clamp(1rem, 20vw, 1.2rem);
     color: var(--brand-color);
@@ -365,4 +370,13 @@ a {
   border: none;
   border-radius: 0px;
   padding: 20px;
+}
+
+.m-5 {
+  margin: 15px;
+}
+
+.headerLink {
+  width: "100%";
+  text-decoration: none !important;
 }

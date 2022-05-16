@@ -94,20 +94,19 @@ function Step3() {
         <div>
           <p> Copy and Paste the script tag inside the head tag.</p>
         </div>
-        <div>
-          <article>Read more about how to add it on your website. </article>
-          {linkData.map((el) => {
-            return (
-              <li key={el.link}>
-                <Link href={el.link} passHref>
-                  <a target="_blank" rel="noopener noreferrer">
-                    {el.label}
-                  </a>
-                </Link>
-              </li>
-            );
-          })}
-        </div>
+        <div>Generate Button</div>
+        <input
+          style={{ width: "100%" }}
+          disabled
+          value={
+            "https://donateviaupi.com/" +
+            script.upi_id +
+            "?pn=" +
+            encodeURI(script.name) +
+            "&amount_list=" +
+            amounts.join()
+          }
+        />
       </div>
     </motion.div>
   );

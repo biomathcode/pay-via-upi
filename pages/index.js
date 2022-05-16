@@ -17,6 +17,7 @@ import BlogContainer from "../components/Blogs";
 import BlueHeader from "../components/ColorHeader";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import PayComponent from "../components/PayComponent";
 
 const Content = styled("div", {
   minWidth: "0%",
@@ -115,7 +116,7 @@ export default function Home() {
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta charset="UTF-8" />
+        <meta charSet="UTF-8" />
         <meta
           name="description"
           content="Add UPI Donation Option to your website under 60 seconds. Create pay via upi button, link and widget. Best way to add upi id on website. "
@@ -218,6 +219,16 @@ export default function Home() {
               >
                 <PhonepeIcon />
               </div>
+            </div>
+
+            <a className="headerLink flex center" href="#create">
+              <button style={{ letterSpacing: "0.1rem" }}>
+                Stitch a UPI Sticker{" "}
+              </button>
+            </a>
+
+            <div className="flex center m-5">
+              <label> It&apos;s free, and takes less than a minute.</label>
             </div>
           </div>
           <div className="flex center">
@@ -481,34 +492,53 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
         </article>
       </section>
 
-      <section className="main">
-        <article className="flex column max container">
-          <h2>Add A Widget to your website</h2>
-          {error.state === state && error.message && (
-            <motion.div
-              initial={{ y: "-10vh", opacity: "0" }}
-              animate={{ y: 0, opacity: 1 }}
-            >
-              <div className="error">
-                <span aria-label="info-icon">
-                  {" "}
-                  <InfoIcon />{" "}
-                </span>{" "}
-                {error.message}
-              </div>
-            </motion.div>
-          )}
-          <RenderComponet
-            state={state}
-            scriptData={scriptData}
-            setScriptData={setScriptData}
-          />
-
-          <div className="flex js max">
-            {state === 0 ? null : (
-              <button onClick={() => setState(state - 1)}>Back</button>
+      <section
+        id="create"
+        className="main flex"
+        style={{ backgroundColor: "#F6F6F6" }}
+      >
+        <article
+          className="flex js responsive"
+          style={{
+            alignContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div className="flex column">
+            <h2>Stitch a UPI Sticker.</h2>
+            {error.state === state && error.message && (
+              <motion.div
+                initial={{ y: "-10vh", opacity: "0" }}
+                animate={{ y: 0, opacity: 1 }}
+              >
+                <p className="error max">
+                  <span aria-label="info-icon">
+                    {" "}
+                    <InfoIcon />{" "}
+                  </span>{" "}
+                  {error.message}
+                </p>
+              </motion.div>
             )}
-            {state === 2 ? null : <button onClick={handleNext}> Next</button>}
+            <RenderComponet
+              state={state}
+              scriptData={scriptData}
+              setScriptData={setScriptData}
+            />
+
+            <div className="flex js max" style={{ marginTop: "10%" }}>
+              {state === 0 ? null : (
+                <button onClick={() => setState(state - 1)}>Back</button>
+              )}
+              {state === 2 ? null : <button onClick={handleNext}> Next</button>}
+            </div>
+          </div>
+          <div className="flex column">
+            <PayComponent
+              pn={scriptData.name}
+              amount_list={amountList.join()}
+              upiid={scriptData.upi_id}
+            />
           </div>
         </article>
       </section>
