@@ -3,6 +3,7 @@ import Image from "next/image";
 import "../styles/globals.css";
 import Link from "next/link";
 import Head from "next/head";
+import SocialMedia from "../components/SocialMedia";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -111,6 +112,7 @@ function MyApp({ Component, pageProps }) {
             </div>
 
             <div>admin@payviaupi.com</div>
+            <SocialMedia />
           </div>
         </div>
       </footer>

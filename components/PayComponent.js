@@ -92,11 +92,6 @@ function PayComponent({ upiid, pn, amount_list = "100,200,300,400" }) {
         margin: "50px",
       }}
     >
-      <Head>
-        <title>
-          UPI payment to {pn} at upi id {upiid}
-        </title>
-      </Head>
       <div className="flex center">
         <section className="flex column max center" style={{ gap: "10px" }}>
           <Heading>
