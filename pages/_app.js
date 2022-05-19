@@ -70,7 +70,7 @@ function MyApp({ Component, pageProps }) {
               width="50px"
               height="50px"
             />
-            <div className="logo"> PAY VIA UPI</div>
+            <div className="logo"> PAY VIA UPI.com</div>
           </div>
         </Link>
       </nav>
@@ -78,7 +78,14 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </RecoilRoot>
 
-      <footer className="footer responsive" style={{ marginBottom: "100px" }}>
+      <footer
+        className="footer responsive"
+        style={{
+          backgroundColor: "#E1CFFF",
+          textAlign: "center",
+          border: "none",
+        }}
+      >
         <div className="flex column  responsive">
           <a
             href="https://twitter.com/biomathcode"

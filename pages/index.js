@@ -18,6 +18,7 @@ import BlueHeader from "../components/ColorHeader";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import PayComponent from "../components/PayComponent";
+import CreateButton from "../components/CreateButton";
 
 const Content = styled("div", {
   minWidth: "0%",
@@ -175,7 +176,7 @@ export default function Home() {
               </h1>
             </div>
 
-            <div className="flex center" style={{ marginBottom: "40px" }}>
+            <div className="flex center" style={{ margin: "40px 0px" }}>
               <div
                 style={{
                   margin: "0px 10px",
@@ -221,7 +222,11 @@ export default function Home() {
               </div>
             </div>
 
-            <a className="headerLink flex center" href="#create">
+            <a
+              style={{ margin: "40px 0px" }}
+              className="headerLink flex center"
+              href="#create"
+            >
               <button style={{ letterSpacing: "0.1rem" }}>
                 Stitch a UPI Sticker{" "}
               </button>
@@ -248,7 +253,7 @@ export default function Home() {
       </section>
 
       <section
-        className="container"
+        className="container mobi-responsive"
         style={{
           backgroundColor: "#FFE0DD",
           width: "100vw",
@@ -273,7 +278,7 @@ export default function Home() {
           </p>
         </article>
 
-        <Marquee speed="100" gradient={false}>
+        <Marquee speed="100" gradient={false} style={{}}>
           <BlueHeader
             color="orange"
             text="Give your followers a way to say thanks!"
@@ -331,6 +336,7 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
           />
         </Marquee>
       </section>
+
       <section
         className="main flex"
         style={{
@@ -366,41 +372,7 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
           </div>
         </article>
       </section>
-      <section
-        className="main flex"
-        style={{ backgroundColor: "#B7FFBA", textAlign: "center" }}
-      >
-        <article
-          className="flex js responsive"
-          style={{ alignContent: "center", alignItems: "center" }}
-        >
-          <div className="flex column container">
-            <h2>
-              Donations should be anonymouse. <br /> We Care About Privacy.{" "}
-            </h2>
-            <p
-              style={{
-                color: "var(--text-color)",
-                fontSize: "25px",
-                maxWidth: "700px",
-                lineHeight: "40px",
-              }}
-            >
-              ❌ No Sign in Required <br />❌ No data collection <br /> Spoiler:
-              We are not a payment gateway.
-            </p>
-          </div>
-          <div>
-            <Image
-              src="/anonymouse.svg"
-              alt="donation should be anonymouse"
-              width="500px"
-              height="550px"
-              style={{ borderRadius: "20px", border: "2px solid #eee" }}
-            />
-          </div>
-        </article>
-      </section>
+
       <section
         className="main flex"
         style={{ backgroundColor: "#FFF8B7", textAlign: "center" }}
@@ -456,6 +428,110 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
 
       <section
         className="main flex"
+        style={{ backgroundColor: "#B7FFBA", textAlign: "center" }}
+      >
+        <article
+          className="flex js responsive"
+          style={{ alignContent: "center", alignItems: "center" }}
+        >
+          <div className="flex column container">
+            <h2>
+              Donations should be anonymouse. <br /> We Care About Privacy.{" "}
+            </h2>
+            <p
+              style={{
+                color: "var(--text-color)",
+                fontSize: "25px",
+                maxWidth: "700px",
+                lineHeight: "40px",
+              }}
+            >
+              ❌ No Sign in Required <br />❌ No data collection <br /> Spoiler:
+              We are not a payment gateway.
+            </p>
+          </div>
+          <div>
+            <Image
+              src="/anonymouse.svg"
+              alt="donation should be anonymouse"
+              width="500px"
+              height="550px"
+              style={{ borderRadius: "20px", border: "2px solid #eee" }}
+            />
+          </div>
+        </article>
+      </section>
+
+      <section
+        id="create"
+        className="main flex"
+        style={{ backgroundColor: "#fff" }}
+      >
+        <p>Create Widget for your website. </p>
+
+        <div className="flex ">
+          <h2 style={{ marginLeft: "25px" }}>Stitch a UPI Sticker.</h2>
+        </div>
+
+        <article
+          className="flex js responsive "
+          style={{
+            alignContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div className="flex column  ">
+            {error.state === state && error.message && (
+              <motion.div
+                initial={{ y: "-10vh", opacity: "0" }}
+                animate={{ y: 0, opacity: 1 }}
+              >
+                <p className="error max">
+                  <span aria-label="info-icon">
+                    {" "}
+                    <InfoIcon />{" "}
+                  </span>{" "}
+                  {error.message}
+                </p>
+              </motion.div>
+            )}
+            <RenderComponet
+              state={state}
+              scriptData={scriptData}
+              setScriptData={setScriptData}
+            />
+
+            <div className="flex js max" style={{ marginTop: "10%" }}>
+              {state === 0 ? null : (
+                <button onClick={() => setState(state - 1)}>Back</button>
+              )}
+              {state === 2 ? null : <button onClick={handleNext}> Next</button>}
+            </div>
+          </div>
+          <div className="flex column center">
+            <p>
+              Preview
+              <span>
+                <DownIcon />
+              </span>
+            </p>
+            <PayComponent
+              pn={scriptData.name}
+              amount_list={amountList.join()}
+              upiid={scriptData.upi_id}
+            />
+          </div>
+        </article>
+      </section>
+
+      <div className="container">
+        <div className="main">
+          <BlogContainer />
+        </div>
+      </div>
+
+      <section
+        className="main flex"
         style={{ backgroundColor: "#E1CFFF", textAlign: "center" }}
       >
         <article
@@ -485,69 +561,12 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
           <Image
             src="/open-sourced.svg"
             alt="donation should be anonymouse"
-            width="500px"
+            width="300px"
             height="550px"
             style={{ borderRadius: "20px", border: "2px solid #eee" }}
           />
         </article>
       </section>
-
-      <section
-        id="create"
-        className="main flex"
-        style={{ backgroundColor: "#F6F6F6" }}
-      >
-        <article
-          className="flex js responsive"
-          style={{
-            alignContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <div className="flex column">
-            <h2>Stitch a UPI Sticker.</h2>
-            {error.state === state && error.message && (
-              <motion.div
-                initial={{ y: "-10vh", opacity: "0" }}
-                animate={{ y: 0, opacity: 1 }}
-              >
-                <p className="error max">
-                  <span aria-label="info-icon">
-                    {" "}
-                    <InfoIcon />{" "}
-                  </span>{" "}
-                  {error.message}
-                </p>
-              </motion.div>
-            )}
-            <RenderComponet
-              state={state}
-              scriptData={scriptData}
-              setScriptData={setScriptData}
-            />
-
-            <div className="flex js max" style={{ marginTop: "10%" }}>
-              {state === 0 ? null : (
-                <button onClick={() => setState(state - 1)}>Back</button>
-              )}
-              {state === 2 ? null : <button onClick={handleNext}> Next</button>}
-            </div>
-          </div>
-          <div className="flex column">
-            <PayComponent
-              pn={scriptData.name}
-              amount_list={amountList.join()}
-              upiid={scriptData.upi_id}
-            />
-          </div>
-        </article>
-      </section>
-
-      <div className="container">
-        <div className="main">
-          <BlogContainer />
-        </div>
-      </div>
     </>
   );
 }

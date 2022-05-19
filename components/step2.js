@@ -27,7 +27,14 @@ function Step2() {
       initial={{ opacity: 0, x: "-10vw" }}
       animate={{ opacity: 1, x: "0" }}
     >
-      <div className="flex column max">
+      <div
+        className="flex column max"
+        style={{ justifyContent: "space-between" }}
+      >
+        <p>
+          <b>Step 2:</b> Add button label and Select four amounts that you would
+          like to receive.
+        </p>
         <div className="flex column">
           <label>Button label</label>
           <input

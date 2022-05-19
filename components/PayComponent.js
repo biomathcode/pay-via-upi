@@ -58,8 +58,8 @@ const ListItem = styled("div", {
 const QRcodeImage = styled("img", {
   margin: 0,
   padding: 0,
-  width: "200px",
-  height: "200px",
+  width: "150px",
+  height: "150px",
   marginLeft: "auto",
   marginRight: "auto",
 });
@@ -87,13 +87,20 @@ function PayComponent({ upiid, pn, amount_list = "100,200,300,400" }) {
       className="container"
       style={{
         backgroundColor: "white",
-        padding: "40px",
+        padding: "20px",
         borderRadius: "40px",
-        margin: "50px",
       }}
     >
       <div className="flex center">
-        <section className="flex column max center" style={{ gap: "10px" }}>
+        <section
+          className="flex column max center"
+          style={{
+            gap: "10px",
+            border: "2px solid #eee",
+            padding: "20px",
+            borderRadius: "20px",
+          }}
+        >
           <Heading>
             UPI payment to
             <Name>{pn ? pn : upiid}</Name>

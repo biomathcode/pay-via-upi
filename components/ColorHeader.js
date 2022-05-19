@@ -11,7 +11,17 @@ function ColorHeader({ color, text }) {
         margin: "20px",
       }}
     >
-      <h2 style={{ color: "var(--brand-color)" }}>{text}</h2>
+      <p style={{ color: "var(--brand-color)" }}>{text}</p>
+      <style jsx>
+        {`
+          p {
+            font-size: clamp(1rem, 20vw, 1.5rem);
+            color: var(--brand-color);
+            line-height: 1.5em;
+            font-weight: 600;
+          }
+        `}
+      </style>
     </div>
   );
 }

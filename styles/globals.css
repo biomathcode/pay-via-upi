@@ -53,9 +53,9 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid gray;
 
-  background-color: #fff;
+  /* background-color: #ffe0dd; */
+  backdrop-filter: blur(8px);
   z-index: 3;
 }
 
@@ -379,4 +379,18 @@ a {
 .headerLink {
   width: "100%";
   text-decoration: none !important;
+}
+
+.card-hover:hover {
+  background-color: #eee;
+}
+
+.card {
+  padding: 10px;
+}
+
+@media only screen and (max-height: 670px) {
+  .mobi-responsive {
+    height: calc(100vh + 200px) !important;
+  }
 }

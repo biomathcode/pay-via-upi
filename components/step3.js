@@ -48,6 +48,9 @@ function Step3() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className="flex column max">
+        <p>
+          <b>Step 3: </b> Copy and Paste the script tag inside the head tag.
+        </p>
         <code
           style={{
             padding: "10px",
@@ -91,10 +94,6 @@ function Step3() {
           </div>
         </div>
 
-        <div>
-          <p> Copy and Paste the script tag inside the head tag.</p>
-        </div>
-        <div>Generate Button</div>
         <input
           style={{ width: "100%" }}
           disabled
