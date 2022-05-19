@@ -64,6 +64,7 @@ function CreateButton() {
 
   const [genState, setGenState] = useState(false);
 
+  const [link, setLink] = useState("");
   const { copied, copy, reset } = useCopy(code);
 
   useEffect(() => {
@@ -71,16 +72,15 @@ function CreateButton() {
       name
     )}&amount_list=${amounts.join()}`;
 
-    const anchorlink = `  <a
+    const anchorlink = `<a
         href="${linkdata}"
         target="_blank"
         rel="noreferrer"
-        
       >
         <img style="width:200px !important; height: 60px !important" src="${data[option].image}" alt="donate via upi button" />
-      </a> `;
+      </a> `.toString();
 
-    // console.log(anchorlink);
+    setLink(linkdata);
 
     setCode(anchorlink);
   }, [option, amounts, upid, name]);
@@ -270,16 +270,7 @@ function CreateButton() {
                         )}
                       </button>
 
-                      <InputCopy
-                        text={
-                          "https://donateviaupi.com/" +
-                          upid +
-                          "?pn=" +
-                          encodeURI(name) +
-                          "&amount_list=" +
-                          amounts.join()
-                        }
-                      />
+                      <InputCopy text={link} />
                     </div>
                   </Content>
                 </Overlay>
