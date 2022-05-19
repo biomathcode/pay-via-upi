@@ -145,6 +145,15 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Script id="schema" type="application/ld+json">
+        {`
+  "@context": "http://www.schema.org",
+  "@type": "WebSite",
+  "name": "Pay Via UPI",
+  "alternateName": "Donate via upi",
+  "url": "https://payviaupi.com"
+`}
+      </Script>
 
       <Script
         src="https://unpkg.com/pay-via-upi-lib"
