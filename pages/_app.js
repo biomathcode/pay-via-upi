@@ -55,24 +55,33 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <nav>
-        <Link href="/" passHref>
-          <div
-            style={{
-              display: "flex",
-              alignContent: "center",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Image
-              src="/logo.svg"
-              alt="Logo of pay via upi"
-              width="50px"
-              height="50px"
-            />
-            <div className="logo"> PAY VIA UPI.com</div>
-          </div>
-        </Link>
+        <div className="flex ">
+          <Link href="/" passHref>
+            <div
+              style={{
+                display: "flex",
+                alignContent: "center",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <img
+                src="/logo.svg"
+                alt="Logo of pay via upi"
+                width="40px"
+                height="40px"
+              />
+              <div className="logo"> PAY VIA UPI.com</div>
+            </div>
+          </Link>
+        </div>
+
+        <div className="flex ">
+          <a href="#create" style={{ marginRight: "20px" }}>
+            Widget
+          </a>
+          <a href="#donatebutton"> Button</a>
+        </div>
       </nav>
       <RecoilRoot>
         <Component {...pageProps} />

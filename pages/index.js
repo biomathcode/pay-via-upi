@@ -4,7 +4,7 @@ import Step1 from "../components/step1";
 import Step2 from "../components/step2";
 import Step3 from "../components/step3";
 import { useState, useCallback, useEffect } from "react";
-import { amountsAtom, emailAtom, errorAtom, scriptAtom } from "../lib/Store";
+import { amountsAtom, errorAtom, scriptAtom } from "../lib/Store";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { DownIcon, InfoIcon, LinkIcon } from "../components/Icons";
 import isLength from "validator/lib/isLength";
@@ -59,8 +59,6 @@ export default function Home() {
   const [error, setError] = useRecoilState(errorAtom);
 
   const [scriptData, setScriptData] = useRecoilState(scriptAtom);
-
-  const [emailData, setEmailData] = useRecoilState(emailAtom);
 
   const amountList = useRecoilValue(amountsAtom);
 
@@ -436,42 +434,6 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
       </section>
 
       <section
-        className="main flex"
-        style={{ backgroundColor: "#B7FFBA", textAlign: "center" }}
-      >
-        <article
-          className="flex js responsive"
-          style={{ alignContent: "center", alignItems: "center" }}
-        >
-          <div className="flex column container">
-            <h2>
-              Donations should be anonymouse. <br /> We Care About Privacy.{" "}
-            </h2>
-            <p
-              style={{
-                color: "var(--text-color)",
-                fontSize: "25px",
-                maxWidth: "700px",
-                lineHeight: "40px",
-              }}
-            >
-              ❌ No Sign in Required <br />❌ No data collection <br /> Spoiler:
-              We are not a payment gateway.
-            </p>
-          </div>
-          <div>
-            <Image
-              src="/anonymouse.svg"
-              alt="donation should be anonymouse"
-              width="500px"
-              height="550px"
-              style={{ borderRadius: "20px", border: "2px solid #eee" }}
-            />
-          </div>
-        </article>
-      </section>
-
-      <section
         id="create"
         className="main flex"
         style={{ backgroundColor: "#fff" }}
@@ -533,11 +495,49 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
         </article>
       </section>
 
+      <CreateButton />
+
       <div className="container">
         <div className="main">
           <BlogContainer />
         </div>
       </div>
+
+      <section
+        className="main flex"
+        style={{ backgroundColor: "#B7FFBA", textAlign: "center" }}
+      >
+        <article
+          className="flex js responsive"
+          style={{ alignContent: "center", alignItems: "center" }}
+        >
+          <div className="flex column container">
+            <h2>
+              Donations should be anonymouse. <br /> We Care About Privacy.{" "}
+            </h2>
+            <p
+              style={{
+                color: "var(--text-color)",
+                fontSize: "25px",
+                maxWidth: "700px",
+                lineHeight: "40px",
+              }}
+            >
+              ❌ No Sign in Required <br />❌ No data collection <br /> Spoiler:
+              We are not a payment gateway.
+            </p>
+          </div>
+          <div>
+            <Image
+              src="/anonymouse.svg"
+              alt="donation should be anonymouse"
+              width="500px"
+              height="550px"
+              style={{ borderRadius: "20px", border: "2px solid #eee" }}
+            />
+          </div>
+        </article>
+      </section>
 
       <section
         className="main flex"

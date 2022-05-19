@@ -47,14 +47,14 @@ nav {
   height: var(--header-size);
   position: static;
   top: 0;
-  width: 100%;
+  width: 100vw;
   font-family: sans-serif;
   padding: 0 100px;
   display: flex;
   align-items: center;
+  align-content: center;
   justify-content: space-between;
 
-  /* background-color: #ffe0dd; */
   backdrop-filter: blur(8px);
   z-index: 3;
 }
@@ -242,6 +242,13 @@ a {
 @media only screen and (max-width: 480px), (max-width: 720px) {
   .responsive {
     flex-direction: column !important;
+  }
+  nav {
+    padding: 0px 20px;
+  }
+  .logo {
+    word-spacing: 0rem;
+    font-size: 0.8rem;
   }
 }
 
