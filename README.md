@@ -9,6 +9,10 @@ Long Story Short: Wanted to create UPI stitchers that we see on Indian Store, fo
 - Responsive and mobile friendly
 - Works on all browsers
 - Free and Open Source
+- Create a donate via UPI button 
+
+<a href="https://donateviaupi.com/pratiksharma@boi?pn=Pratik%20Sharma&amp;amount_list=10,20,50,100" target="_blank" rel="noreferrer"> <img style="width:160px !important; height: 40px !important" src="https://payviaupi.com/default-purple.png" alt="donate via upi button"> </a>
+
 
 
 ## CodeSandbox Demo Links
