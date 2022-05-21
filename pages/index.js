@@ -101,8 +101,6 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {}, []);
-
   return (
     <>
       <Head>
@@ -579,8 +577,3 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
     </>
   );
 }
-
-// TODO
-// 1. Learn how to create svg on server if not add the svg  and learn how to add text to them.
-// 2. Update the Create Widget page.
-// 3. Solve the bug on donateviaupi.

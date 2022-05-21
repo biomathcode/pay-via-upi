@@ -77,7 +77,7 @@ function PayComponent({ upiid, pn, amount_list = "100,200,300,400" }) {
   useEffect(() => {
     let qrcodelink = `upi://pay?cu=${String(currency)}&pa=${upiid}&am=${String(
       value
-    )}&pn=${encodeURIComponent(pn)}`;
+    )}&pn=${encodeURIComponent(pn)}&tn=donate via upi `;
     generateQR(qrcodelink).then((res) => setImg(res));
     setUrl(qrcodelink);
   }, [value, upiid, pn]);

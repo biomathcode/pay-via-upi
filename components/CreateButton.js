@@ -72,13 +72,7 @@ function CreateButton() {
       name
     )}&amount_list=${amounts.join()}`;
 
-    const anchorlink = `<a
-        href="${linkdata}"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <img style="width:200px !important; height: 60px !important" src="${data[option].image}" alt="donate via upi button" />
-      </a> `.toString();
+    const anchorlink = `<a href="${linkdata}" target="_blank"rel="noreferrer"> <img style="width:160px !important; height: 40px !important" src="${data[option].image}" alt="donate via upi button" /> </a> `;
 
     setLink(linkdata);
 
@@ -281,8 +275,8 @@ function CreateButton() {
         <div style={{ marginTop: "20px" }}>
           <img
             src={data[option].image}
-            width="218px"
-            height="60px"
+            width="160px"
+            height="40px"
             alt="purple button "
           />
         </div>
