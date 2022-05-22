@@ -197,7 +197,7 @@ export default function Home() {
           </div>
           <div className="flex center">
             <video
-              src="/demo.mov"
+              src="/demonew.mov"
               type="video/mov"
               controls
               autoPlay="autoplay"
