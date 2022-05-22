@@ -1,11 +1,5 @@
 {
- "name": "Pay Via UPI Website",
- "start_url": "/",
- "display": "standalone",
- "description": "Pay Via UPI Website",
- "theme_color": "#ffffff",
- "background_color": "#000",
- "orientation": "portrait",
+ "name": "App",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",

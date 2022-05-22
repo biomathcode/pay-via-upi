@@ -322,11 +322,11 @@ Arrey oh Sambha ... kitna inaam rakhe hai sarkar ham par?"
           </div>
           <div>
             <Image
-              src="/widgetpreview.png"
+              src="/widget.png"
               alt="Add a pay via upi widget to your website. "
               width="280px"
-              height="550px"
-              style={{ borderRadius: "20px", border: "2px solid #eee" }}
+              height="450px"
+              style={{ borderRadius: "10px", border: "2px solid #eee" }}
             />
           </div>
         </article>
