@@ -231,44 +231,6 @@ const Modal = ({ amounts, pa, pn, button_label }) => {
                   <QRcodeImage src={img} alt={pa} />
                   <div style={{ fontSize: "14px", color: "#6B6B6B" }}>{pa}</div>
                 </div>
-
-                <a
-                  href={url}
-                  className="link"
-                  style={{
-                    alignSelf: "center",
-                    padding: "5px 20px",
-                    borderRadius: "10px",
-                  }}
-                >
-                  <div
-                    className="flex "
-                    style={{
-                      gap: "10px",
-                      alignContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <div>Open with</div>
-                    <div
-                      style={{
-                        margin: "0px 10px",
-                        display: "flex",
-                        alignContent: "center",
-                        alignItems: "center",
-                        width: "30px",
-                      }}
-                    >
-                      <GpayIcon />
-                    </div>
-                    <div style={{ maring: "0px 10px", width: "30px" }}>
-                      <PaytmIcon />
-                    </div>
-                    <div style={{ maring: "0px 10px", width: "30px" }}>
-                      <PhonepeIcon />
-                    </div>
-                  </div>
-                </a>
               </Content>
             </Overlay>
           </Dialog.Portal>

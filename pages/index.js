@@ -181,52 +181,6 @@ export default function Home() {
               </h1>
             </div>
 
-            <div className="flex center" style={{ margin: "40px 0px" }}>
-              <div
-                style={{
-                  margin: "0px 10px",
-                  display: "flex",
-                  alignContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                Support For
-              </div>
-              <div
-                style={{
-                  margin: "0px 10px",
-                  display: "flex",
-                  alignContent: "center",
-                  alignItems: "center",
-                  width: "40px",
-                }}
-              >
-                <GpayIcon />
-              </div>
-              <div
-                style={{
-                  margin: "0px 10px",
-                  display: "flex",
-                  alignContent: "center",
-                  alignItems: "center",
-                  width: "40px",
-                }}
-              >
-                <PaytmIcon />
-              </div>
-              <div
-                style={{
-                  margin: "0px 10px",
-                  display: "flex",
-                  alignContent: "center",
-                  alignItems: "center",
-                  width: "40px",
-                }}
-              >
-                <PhonepeIcon />
-              </div>
-            </div>
-
             <a
               style={{ margin: "40px 0px" }}
               className="headerLink flex center"

@@ -174,44 +174,6 @@ function PayComponent({ upiid, pn, amount_list = "100,200,300,400" }) {
               {upiid}
             </div>
           </div>
-
-          <a
-            href={url}
-            className="link"
-            style={{
-              alignSelf: "center",
-              padding: "5px 20px",
-              borderRadius: "10px",
-            }}
-          >
-            <div
-              className="flex "
-              style={{
-                gap: "10px",
-                alignContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div>Open with</div>
-              <div
-                style={{
-                  margin: "0px 10px",
-                  display: "flex",
-                  alignContent: "center",
-                  alignItems: "center",
-                  width: "30px",
-                }}
-              >
-                <GpayIcon />
-              </div>
-              <div style={{ maring: "0px 10px", width: "30px" }}>
-                <PaytmIcon />
-              </div>
-              <div style={{ maring: "0px 10px", width: "30px" }}>
-                <PhonepeIcon />
-              </div>
-            </div>
-          </a>
         </section>
       </div>
     </article>
