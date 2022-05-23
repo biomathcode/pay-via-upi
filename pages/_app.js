@@ -53,6 +53,7 @@ function MyApp({ Component, pageProps }) {
           key="ogdesc"
         />
         <link rel="icon" href="/favicon.ico" />
+        <script async src="https://cdn.splitbee.io/sb.js"></script>
       </Head>
       <nav>
         <div className="flex ">
