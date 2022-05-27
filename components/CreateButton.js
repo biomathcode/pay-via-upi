@@ -72,7 +72,7 @@ function CreateButton() {
       name
     )}&amount_list=${amounts.join()}`;
 
-    const anchorlink = `<a href="${linkdata}" target="_blank"rel="noreferrer"> <img style="width:160px !important; height: 40px !important" src="${data[option].image}" alt="donate via upi button" /> </a> `;
+    const anchorlink = `<a href="${linkdata}" target="_blank"><img style="width:160px !important; height: 40px !important" src="${data[option].image}" alt="donate via upi button"/></a>`;
 
     setLink(linkdata);
 
@@ -232,12 +232,12 @@ function CreateButton() {
           <div className="flex center" style={{ marginTop: "40px" }}>
             <Dialog.Root>
               {genState ? (
-                <Dialog.Trigger>Generate</Dialog.Trigger>
+                <Dialog.Trigger style={{ zIndex: 0 }}>Generate</Dialog.Trigger>
               ) : (
                 <button onClick={() => validate()}> Validate</button>
               )}
 
-              <Dialog.Portal>
+              <Dialog.Portal style={{ zIndex: 2000000 }}>
                 <Overlay>
                   <Content>
                     <div>
