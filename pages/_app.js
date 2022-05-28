@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title> Pay Via UPI </title>
         <link rel="manifest" href="/manifest.json" />
+        <link rel="canonical" href="https://payviaupi.com" />
         <meta
           name="description"
           content=" Add UPI Donation Option to your website under 60 seconds. Create upi qrcode. Get free upi qrcode for your website. "
