@@ -8,7 +8,10 @@ function BlogReactSite() {
         <Head>
           <title>How to add pay via upi Button on React site?</title>
         </Head>
-        <Script id="how-to-add-pay-via-upi-widget-on-react-app">
+        <Script
+          strategy="beforeInteractive"
+          id="how-to-add-pay-via-upi-widget-on-react-app"
+        >
           {`
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -54,6 +57,7 @@ function BlogReactSite() {
         </style>
         <article>
           <h1>How to add pay via upi Button on Create React App site?</h1>
+
           <div className="flex js">
             <p>Date: 21 May 2022</p>
 

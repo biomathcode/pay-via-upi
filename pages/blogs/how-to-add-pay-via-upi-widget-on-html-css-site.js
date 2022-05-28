@@ -8,7 +8,10 @@ function BlogNextSite() {
         <Head>
           <title>How to add pay via upi Widget on Html Css site?</title>
         </Head>
-        <Script id="how-to-add-pay-via-upi-widget-on-html-css-app">
+        <Script
+          strategy="beforeInteractive"
+          id="how-to-add-pay-via-upi-widget-on-html-css-app"
+        >
           {`
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -54,7 +57,7 @@ function BlogNextSite() {
         </style>
         <article>
           <h1>How to add pay via upi widget on Html Css site?</h1>
-          <img src="" alt="How to add pay via UPI widget on HTML CSS site" />
+
           <div className="flex js">
             <p>Date: 25 May 2022</p>
 

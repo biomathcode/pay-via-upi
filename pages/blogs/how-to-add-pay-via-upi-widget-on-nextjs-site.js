@@ -8,7 +8,10 @@ function BlogNextSite() {
         <Head>
           <title>How to add pay via upi Button on nextjs site?</title>
         </Head>
-        <Script id="how-to-add-pay-via-upi-widget-on-nextjs-app">
+        <Script
+          strategy="beforeInteractive"
+          id="how-to-add-pay-via-upi-widget-on-nextjs-app"
+        >
           {`
   "@context": "https://schema.org",
   "@type": "BlogPosting",
