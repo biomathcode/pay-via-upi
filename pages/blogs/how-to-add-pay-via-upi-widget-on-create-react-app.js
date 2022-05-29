@@ -1,42 +1,45 @@
 import Head from "next/head";
 import Image from "next/image";
-import Script from "next/script";
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id":
+      "https://www.payviaupi.com/blogs/how-to-add-pay-via-upi-widget-on-react-site",
+  },
+  headline: "How to add pay via upi Widget on react site?",
+  image:
+    "https://payviaupi.com/How-to-add-pay-via-upi-widget-on-react-site.jpeg",
+  author: {
+    "@type": "Person",
+    name: "Pratik Sharma",
+    url: "https://twitter.com/biomathcode",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Pay Via UPI",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://payviaupi.com",
+    },
+  },
+  datePublished: "2022-05-28",
+};
+
 function BlogReactSite() {
   return (
     <div className="flex column center">
       <div className="" style={{ marginTop: "100px" }}>
         <Head>
           <title>How to add pay via upi Button on React site?</title>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+          />
         </Head>
-        <Script
-          strategy="beforeInteractive"
-          id="how-to-add-pay-via-upi-widget-on-react-app"
-        >
-          {`
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.payviaupi.com/blogs/how-to-add-pay-via-upi-widget-on-react-site"
-  },
-  "headline": "How to add pay via upi Widget on react site?",
-  "image": "https://payviaupi.com/How-to-add-pay-via-upi-widget-on-react-site.jpeg",  
-  "author": {
-    "@type": "Person",
-    "name": "Pratik Sharma",
-    "url": "https://twitter.com/biomathcode"
-  },  
-  "publisher": {
-    "@type": "Organization",
-    "name": "Pay Via UPI",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://payviaupi.com"
-    }
-  },
-  "datePublished": "2022-05-28"
-`}
-        </Script>
+
         <style jsx>
           {`
             @media screen and (max-width: 480px) {
