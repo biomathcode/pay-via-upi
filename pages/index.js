@@ -20,23 +20,13 @@ import Marquee from "react-fast-marquee";
 import PayComponent from "../components/PayComponent";
 import CreateButton from "../components/CreateButton";
 
-const Content = styled("div", {
-  minWidth: "0%",
-  minHeight: "40%",
-  background: "white",
-
-  borderRight: "10px",
-  display: "flex",
-  flexDirection: "column",
-  alignContent: "flex-end",
-  textAlign: "center",
-  fontFamily: "sans-serif",
-
-  borderRadius: "10px",
-});
-
-// add a loading bar
-// debug the selection bug
+const schemaData = {
+  "@context": "http://www.schema.org",
+  "@type": "WebSite",
+  name: "Pay Via UPI",
+  alternateName: "Donate via upi",
+  url: "https://payviaupi.com",
+};
 
 const RenderComponet = ({ state }) => {
   const components = useCallback(() => {
@@ -140,15 +130,10 @@ export default function Home() {
           key="ogdesc"
         />
         <link rel="icon" href="/favicon.ico" />
-        <script id="schema" type="application/ld+json">
-          {`
-  "@context": "http://www.schema.org",
-  "@type": "WebSite",
-  "name": "Pay Via UPI",
-  "alternateName": "Donate via upi",
-  "url": "https://payviaupi.com"
-`}
-        </script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
       </Head>
 
       <Script
