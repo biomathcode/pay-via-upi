@@ -95,11 +95,11 @@ export default function Home() {
     <>
       <Head>
         <title>
-          Pay Via UPI || Create Widget, Button and link for your upi id.
+          Create upi widget, upi button and upi link for upi id || Pay Via UPI
         </title>
         <meta
           name="title"
-          content="Pay Via UPI || Create Widget, Button and link for your upi id."
+          content="Create upi widget, upi button and upi link for upi id || Pay Via UPI "
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -119,7 +119,7 @@ export default function Home() {
         <meta property="og:site_name" content="PayViaUPI" key="ogsitename" />
         <meta
           property="og:title"
-          content="Pay Via UPI || Add UPI Donation Option to your website under 60 seconds."
+          content="Add UPI Donation Option to your website under 60 seconds.|| Pay Via UPI "
           key="ogtitle"
         />
         <meta

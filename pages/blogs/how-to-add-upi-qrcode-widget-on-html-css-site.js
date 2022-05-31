@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import Script from "next/script";
 
 const schemaData = {
   "@context": "https://schema.org",
@@ -8,11 +7,11 @@ const schemaData = {
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id":
-      "https://www.payviaupi.com/blogs/how-to-add-pay-via-upi-widget-on-nextjs-site",
+      "https://www.payviaupi.com/blogs/how-to-add-pay-via-upi-widget-on-html-css-site",
   },
   headline: "How to add pay via upi Widget on Html Css site?",
   image:
-    "https://www.payviaupi.com/How-to-add-pay-via-upi-widget-on-nextjs-site.jpeg",
+    "https://payviaupi.com/How-to-add-pay-via-upi-widget-on-html-css-site.jpeg",
   author: {
     "@type": "Person",
     name: "Pratik Sharma",
@@ -34,7 +33,7 @@ function BlogNextSite() {
     <div className="flex column center">
       <div className="" style={{ marginTop: "100px" }}>
         <Head>
-          <title>How to add pay via upi Button on nextjs site?</title>
+          <title>How to add upi qrcode Widget on Html Css site?</title>
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
@@ -60,9 +59,10 @@ function BlogNextSite() {
           `}
         </style>
         <article>
-          <h1>How to add pay via upi Button on nextjs site?</h1>
+          <h1>How to add upi qrcode widget on Html Css site?</h1>
+
           <div className="flex js">
-            <p>Date: 8 May 2022</p>
+            <p>Date: 25 May 2022</p>
 
             <p>
               <a href="https://twitter.com/biomathcode">By Pratik Sharma</a>{" "}
@@ -73,30 +73,18 @@ function BlogNextSite() {
             <p>
               1. Get the script tag from
               <a src="https://payviaupi.com"> PayViaUPI.com </a>
-              add your details UPI ID, name.
+              Click on Stitch a UPI Sticker. Complete the form with your details
+              UPI ID, name.
             </p>
+
             <p>
-              2. Instead of using the script tag, we will use the Script tag
-              provide by Nextjs like this
-            </p>
-            <Image
-              width="400px"
-              height="400px"
-              src="/snippet.png"
-              alt="code snippet"
-            />
-            <p>
-              3. Add strategy attribute to Script tad with value
-              &apos;beforeInteractive&apos;
-            </p>
-            <p>
-              4. You are done. You would see the pay via UPI button on the Page
-              that you added the Script tag.
+              2. Copy And Paste the script that you get inside the head tag of
+              your <mark>index.html </mark> file.
             </p>
           </main>
           <p>here is a CodeSandBox Example that you can fork...</p>
           <iframe
-            src="https://codesandbox.io/embed/sweet-shadow-hryroz?fontsize=14&hidenavigation=1&theme=dark"
+            src="https://codesandbox.io/embed/white-voice-3xk9y3?fontsize=14&hidenavigation=1&theme=dark"
             style={{
               width: "100%",
               height: "500px",
